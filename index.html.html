@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinicius G. Capeleti — Marketing · Design · Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050810;--navy:#070d1f;--blue-deep:#0a1628;--blue:#0d5fff;--blue-mid:#1a4fd6;--blue-glow:#3d7eff;--blue-light:#6fa3ff;--white:#f0f4ff;--white-dim:#a8b8d8;--accent:#00c8ff;--border:rgba(13,95,255,0.25)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none}
+.cursor{position:fixed;top:0;left:0;width:12px;height:12px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:exclusion;transition:transform .1s}
+.cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid var(--blue-glow);border-radius:50%;pointer-events:none;z-index:9998;transition:width .2s,height .2s;opacity:.7}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(13,95,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(13,95,255,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;background:var(--blue);opacity:0;animation:floatParticle linear infinite}
+@keyframes floatParticle{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:.4}90%{opacity:.1}100%{opacity:0;transform:translateY(-100px) scale(1)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 8vw;display:flex;align-items:center;justify-content:space-between;background:rgba(5,8,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(13,95,255,.1)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.1em;color:var(--white);text-decoration:none;cursor:none}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color .2s;cursor:none}
+.nav-links a:hover{color:var(--white)}
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:8rem 8vw 4rem;overflow:hidden;z-index:1}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(13,95,255,.18) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none;animation:glowPulse 6s ease-in-out infinite}
+.hero-glow-2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,255,.09) 0%,transparent 70%);bottom:0;left:20%;pointer-events:none;animation:glowPulse 8s ease-in-out infinite reverse}
+@keyframes glowPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.hero-content{position:relative;z-index:2;max-width:80%}
+.hero-photo-wrap{position:absolute;right:6vw;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:fadeUp 1s .3s forwards}
+.hero-photo{width:clamp(200px,20vw,320px);height:auto;display:block;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform:scaleX(0.91);transform-origin:center;filter:drop-shadow(0 0 40px rgba(13,95,255,.35)) drop-shadow(0 0 80px rgba(0,0,0,.8));border:2px solid rgba(13,95,255,.3)}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(0,200,255,.3);padding:.35em 1em;border-radius:2px;margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s .2s forwards;display:inline-block}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,8.5rem);line-height:.9;letter-spacing:-.01em;color:var(--white);opacity:0;animation:fadeUp .8s .4s forwards}
+.hero-name span{color:var(--blue)}
+.hero-sub{font-size:clamp(.9rem,2vw,1.2rem);font-weight:300;color:var(--white-dim);margin-top:1.2rem;letter-spacing:.03em;opacity:0;animation:fadeUp .8s .6s forwards}
+.hero-sub strong{color:var(--blue-light);font-weight:500}
+.hero-exp{display:inline-flex;align-items:center;gap:.7rem;margin-top:1rem;background:rgba(13,95,255,.1);border:1px solid var(--border);border-radius:4px;padding:.5em 1.2em;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-exp-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--accent);line-height:1}
+.hero-exp-text{font-size:.75rem;color:var(--white-dim);line-height:1.3}
+.hero-cta-row{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.75em 1.8em;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .25s ease;cursor:none;position:relative;overflow:hidden}
+.btn-primary{background:var(--blue);color:#fff;border:1px solid var(--blue-glow);box-shadow:0 0 24px rgba(13,95,255,.4)}
+.btn-primary:hover{background:var(--blue-glow);box-shadow:0 0 40px rgba(61,126,255,.6);transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--white-dim);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--blue);color:var(--white);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:2rem;left:8vw;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fadeUp .8s 1.2s forwards}
+.scroll-line{width:48px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
+.scroll-text{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:var(--white-dim);text-transform:uppercase}
+.scroll-dot{width:6px;height:6px;background:var(--blue);border-radius:50%;animation:scrollDot 1.8s ease-in-out infinite}
+@keyframes scrollDot{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.3;transform:translateY(4px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+#portfolio-highlight{position:relative;z-index:1;padding:0 8vw 5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.portfolio-card{position:relative;border:1px solid var(--border);border-radius:6px;padding:2.5rem;background:linear-gradient(135deg,rgba(13,22,40,.9),rgba(7,13,31,.9));overflow:hidden;text-decoration:none;color:inherit;display:block;transition:all .35s ease;cursor:none}
+.portfolio-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,95,255,.08),transparent);opacity:0;transition:opacity .3s}
+.portfolio-card:hover::before{opacity:1}
+.portfolio-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 20px 60px rgba(13,95,255,.2)}
+.port-badge{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:.3em .8em;border-radius:2px;display:inline-block;margin-bottom:1.2rem}
+.port-badge.design{background:rgba(13,95,255,.2);color:var(--blue-light);border:1px solid rgba(13,95,255,.3)}
+.port-badge.video{background:rgba(0,200,255,.15);color:var(--accent);border:1px solid rgba(0,200,255,.3)}
+.port-icon{font-size:2.8rem;margin-bottom:1rem;display:block}
+.port-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.05em;margin-bottom:.5rem}
+.port-desc{font-size:.9rem;color:var(--white-dim);line-height:1.6;margin-bottom:1.5rem}
+.port-link{display:inline-flex;align-items:center;gap:.5em;font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);transition:color .2s,gap .2s}
+.portfolio-card:hover .port-link{color:var(--accent);gap:.8em}
+.port-corner{position:absolute;top:0;right:0;width:80px;height:80px;border-left:1px solid var(--border);border-bottom:1px solid var(--border);opacity:.4;pointer-events:none}
+section{position:relative;z-index:1;padding:5rem 8vw}
+.section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:3.5rem}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue);letter-spacing:.1em}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.05em}
+.section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--blue) 0%,rgba(13,95,255,.1) 100%)}
+.timeline-item{position:relative;padding:0 0 3.5rem 2.5rem;opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease}
+.timeline-item.visible{opacity:1;transform:translateX(0)}
+.timeline-item.hidden{opacity:0;transform:translateX(-20px)}
+.timeline-dot{position:absolute;left:-2.95rem;top:.2rem;width:10px;height:10px;border-radius:50%;background:var(--blue);border:2px solid var(--black);box-shadow:0 0 12px rgba(13,95,255,.6)}
+.timeline-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(13,95,255,.3);animation:dotPulse 2s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:0}}
+.job-period{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;color:var(--blue-light);text-transform:uppercase;margin-bottom:.5rem}
+.job-title{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.05em;line-height:1;margin-bottom:.3rem}
+.job-company{font-size:.85rem;color:var(--white-dim);margin-bottom:1rem;font-style:italic}
+.job-desc{font-size:.9rem;line-height:1.7;color:rgba(240,244,255,.75);border-left:2px solid rgba(13,95,255,.2);padding-left:1rem}
+.vol-section{margin-top:3rem}
+.vol-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.vol-card{border:1px solid var(--border);border-radius:6px;padding:1.5rem;background:rgba(13,22,40,.6);opacity:0;transform:translateY(20px);transition:all .5s}
+.vol-card.visible{opacity:1;transform:translateY(0)}
+.vol-card.hidden{opacity:0;transform:translateY(20px)}
+.vol-card-icon{font-size:1.5rem;margin-bottom:.5rem}
+.vol-card-title{font-weight:700;font-size:.95rem;margin-bottom:.3rem}
+.vol-card-desc{font-size:.8rem;color:var(--white-dim);line-height:1.5}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem}
+.tool-card{border:1px solid var(--border);border-radius:8px;padding:1.5rem 1rem;background:linear-gradient(135deg,rgba(13,22,40,.8),rgba(7,13,31,.8));display:flex;flex-direction:column;align-items:center;gap:.7rem;transition:all .3s;opacity:0;transform:translateY(20px);text-align:center;cursor:none}
+.tool-card.visible{opacity:1;transform:translateY(0)}
+.tool-card.hidden{opacity:0;transform:translateY(20px)}
+.tool-card:hover{border-color:rgba(13,95,255,.5);box-shadow:0 8px 32px rgba(13,95,255,.15);transform:translateY(-3px)}
+.tool-logo{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:rgba(13,95,255,.1)}
+.tool-logo img{width:32px;height:32px;object-fit:contain}
+.tool-name{font-size:.78rem;font-weight:600;letter-spacing:.03em}
+.tool-cat{font-size:.65rem;color:var(--white-dim);font-family:'JetBrains Mono',monospace}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.edu-card{border:1px solid var(--border);border-radius:6px;padding:1.8rem;background:linear-gradient(135deg,rgba(13,22,40,.8),rgba(7,13,31,.8));position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:all .5s}
+.edu-card.visible{opacity:1;transform:translateY(0)}
+.edu-card.hidden{opacity:0;transform:translateY(20px)}
+.edu-card::after{content:'🎓';position:absolute;right:1rem;top:1rem;font-size:1.4rem;opacity:.15}
+.edu-period{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--blue);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.edu-title{font-weight:700;font-size:1rem;margin-bottom:.3rem;line-height:1.3}
+.edu-place{font-size:.8rem;color:var(--white-dim)}
+.edu-status{display:inline-block;margin-top:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.25);border-radius:2px;padding:.2em .7em}
+.lang-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.lang-card{flex:1;min-width:200px;border:1px solid var(--border);border-radius:6px;padding:2rem;background:linear-gradient(135deg,rgba(13,22,40,.8),rgba(7,13,31,.8));display:flex;align-items:center;gap:1.5rem;transition:all .3s;opacity:0;transform:translateY(20px)}
+.lang-card.visible{opacity:1;transform:translateY(0)}
+.lang-card.hidden{opacity:0;transform:translateY(20px)}
+.lang-card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.lang-flag{font-size:0;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lang-flag img{width:52px;height:36px;object-fit:cover;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.12);display:block}
+.lang-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em}
+.lang-level{font-size:.8rem;color:var(--blue-light)}
+.lang-detail{font-size:.72rem;color:var(--white-dim);margin-top:.2rem;font-style:italic}
+.about-section{border-top:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{font-size:.95rem;color:rgba(240,244,255,.8);line-height:1.8;margin-bottom:1rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.about-tag{display:inline-flex;align-items:center;gap:.4em;background:rgba(13,95,255,.1);border:1px solid var(--border);border-radius:20px;padding:.35em .9em;font-size:.78rem;color:var(--white-dim)}
+.about-tag span{font-size:.9em}
+.disc-card{border:1px solid rgba(0,200,255,.25);border-radius:8px;padding:2rem;background:linear-gradient(135deg,rgba(0,200,255,.05),rgba(7,13,31,.9))}
+.disc-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;margin-bottom:.5rem}
+.disc-subtitle{font-size:.8rem;color:var(--accent);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.disc-chart{display:flex;gap:.8rem;align-items:flex-end;margin-bottom:1.5rem;height:120px}
+.disc-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:.4rem;flex:1}
+.disc-bar-bg{flex:1;width:100%;background:rgba(255,255,255,.06);border-radius:4px;display:flex;align-items:flex-end;overflow:hidden}
+.disc-bar-fill{width:100%;border-radius:4px;transition:height 1.5s cubic-bezier(.4,0,.2,1);height:0}
+.disc-bar-fill.d{background:#e86060}
+.disc-bar-fill.i{background:#d4a020}
+.disc-bar-fill.s{background:#20a080}
+.disc-bar-fill.c{background:#4080e0}
+.disc-bar-label{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;opacity:.8}
+.disc-bar-pct{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--white-dim)}
+.disc-result{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent);margin-bottom:.5rem}
+.disc-desc{font-size:.82rem;color:var(--white-dim);line-height:1.65}
+.disc-link{display:inline-flex;align-items:center;gap:.4em;margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);text-decoration:none;transition:color .2s}
+.disc-link:hover{color:var(--accent)}
+#contact{border-top:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1;margin-bottom:1rem}
+.contact-text p{color:var(--white-dim);line-height:1.7;margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--white-dim);background:rgba(13,22,40,.5);transition:all .25s;cursor:none}
+.contact-link:hover{border-color:var(--blue);color:var(--white);background:rgba(13,95,255,.1);transform:translateX(4px)}
+.contact-link-icon{width:40px;height:40px;border-radius:4px;background:rgba(13,95,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-link-label{font-size:.75rem;color:var(--blue-light);text-transform:uppercase;letter-spacing:.1em;font-family:'JetBrains Mono',monospace}
+.contact-link-value{font-size:.9rem}
+.divider{width:calc(100% - 16vw);height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 8vw}
+footer{position:relative;z-index:1;text-align:center;padding:2rem 8vw;border-top:1px solid var(--border)}
+footer p{font-size:.75rem;color:var(--white-dim);font-family:'JetBrains Mono',monospace;letter-spacing:.1em}
+@media(max-width:900px){
+  .hero-content{max-width:100%}
+  .hero-photo-wrap{display:none}
+  #portfolio-highlight{grid-template-columns:1fr}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .vol-cards{grid-template-columns:1fr}
+  .nav-links{display:none}
+  section{padding:4rem 5vw}
+  #hero{padding:7rem 5vw 4rem}
+}
+/* ── ACCESSIBILITY & LANG TOOLBAR ── */
+.a11y-bar{position:fixed;right:1.5rem;z-index:200;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;top:50%;transform:translateY(-50%);transition:top .35s cubic-bezier(.4,0,.2,1)}
+.a11y-toggle{background:var(--blue);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(13,95,255,.5);transition:all .25s}
+.a11y-toggle:hover{background:var(--blue-glow);transform:scale(1.1)}
+.a11y-toggle:focus{outline:3px solid var(--accent);outline-offset:3px}
+.a11y-panel{background:rgba(7,13,31,.97);border:1px solid var(--border);border-radius:10px;padding:1.2rem;display:none;flex-direction:column;gap:.7rem;min-width:230px;backdrop-filter:blur(20px);margin-bottom:.5rem}
+.a11y-panel.open{display:flex}
+.a11y-panel-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.1rem}
+.a11y-btn{background:rgba(13,95,255,.1);border:1px solid var(--border);color:var(--white-dim);padding:.5em 1em;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.82rem;cursor:pointer;text-align:left;transition:all .2s;display:flex;align-items:center;gap:.5em;width:100%}
+.a11y-btn:hover,.a11y-btn.active{border-color:var(--blue);color:var(--white);background:rgba(13,95,255,.25)}
+.a11y-btn:focus{outline:3px solid var(--accent);outline-offset:2px}
+.a11y-sep{height:1px;background:var(--border);margin:.1rem 0}
+.lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.lang-btn{background:rgba(13,95,255,.08);border:1px solid var(--border);color:var(--white-dim);padding:.4em .6em;border-radius:4px;font-size:.75rem;cursor:pointer;transition:all .2s;text-align:center;display:flex;align-items:center;gap:.3em;justify-content:center}
+.lang-btn:hover,.lang-btn.active{border-color:var(--accent);color:var(--white);background:rgba(0,200,255,.15)}
+.lang-btn:focus{outline:3px solid var(--accent);outline-offset:2px}
+body.high-contrast{background:#000 !important;color:#fff !important}
+body.high-contrast nav{background:#000 !important}
+body.high-contrast .tool-card,body.high-contrast .edu-card,body.high-contrast .lang-card,body.high-contrast .vol-card,body.high-contrast .portfolio-card{background:#111 !important;border-color:#fff !important}
+
+/* ── LIGHT MODE ── */
+body.light-mode{
+  --black:#f5f7ff;
+  --navy:#eef1fa;
+  --blue-deep:#e8ecf8;
+  --white:#1a1f3a;
+  --white-dim:#3d4466;
+  --border:rgba(13,95,255,0.2);
+  background:#f5f7ff !important;
+  color:#1a1f3a !important;
+}
+/* Modern white background: subtle dot grid + light gradient blobs */
+body.light-mode::after{
+  background-image:
+    radial-gradient(circle, rgba(13,95,255,0.07) 1px, transparent 1px);
+  background-size:28px 28px;
+  opacity:1;
+}
+body.light-mode::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(100,149,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(0,200,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(180,200,255,0.06) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+body.light-mode nav{
+  background:rgba(245,247,255,0.88) !important;
+  border-bottom:1px solid rgba(13,95,255,0.15) !important;
+}
+body.light-mode .nav-logo,
+body.light-mode .nav-links a,
+body.light-mode .section-title,
+body.light-mode .job-title,
+body.light-mode .port-title,
+body.light-mode .disc-title,
+body.light-mode .hero-name{color:#1a1f3a !important}
+body.light-mode .nav-links a:hover{color:#0d5fff !important}
+body.light-mode .hero-name span{color:#0d5fff !important}
+body.light-mode .hero-sub,body.light-mode .port-desc,body.light-mode .job-desc,
+body.light-mode .job-company,body.light-mode .edu-place,body.light-mode .disc-desc,
+body.light-mode .vol-card-desc,body.light-mode .contact-link-value{color:#3d4466 !important}
+body.light-mode .portfolio-card,
+body.light-mode .tool-card,
+body.light-mode .edu-card,
+body.light-mode .lang-card,
+body.light-mode .vol-card,
+body.light-mode .disc-card,
+body.light-mode .contact-link{
+  background:rgba(255,255,255,0.75) !important;
+  border-color:rgba(13,95,255,0.18) !important;
+  box-shadow:0 2px 16px rgba(13,95,255,0.07) !important;
+  backdrop-filter:blur(12px);
+}
+body.light-mode .portfolio-card:hover,
+body.light-mode .tool-card:hover,
+body.light-mode .contact-link:hover{
+  box-shadow:0 8px 32px rgba(13,95,255,0.15) !important;
+  border-color:rgba(13,95,255,0.4) !important;
+}
+body.light-mode .hero-exp{background:rgba(13,95,255,0.08) !important;border-color:rgba(13,95,255,0.2) !important}
+body.light-mode .a11y-bar .a11y-panel{background:rgba(245,247,255,0.97) !important;border-color:rgba(13,95,255,0.2) !important}
+body.light-mode .a11y-btn{color:#3d4466 !important;background:rgba(13,95,255,0.06) !important}
+body.light-mode .a11y-btn:hover,body.light-mode .a11y-btn.active{color:#1a1f3a !important;background:rgba(13,95,255,0.15) !important}
+body.light-mode .lang-btn{color:#3d4466 !important}
+body.light-mode .lang-btn:hover,body.light-mode .lang-btn.active{color:#0d5fff !important}
+body.light-mode .cb-select{background:rgba(255,255,255,0.8) !important;color:#3d4466 !important;border-color:rgba(13,95,255,0.2) !important}
+body.light-mode .cb-select option{background:#f5f7ff !important;color:#1a1f3a !important}
+body.light-mode .hero-glow{background:radial-gradient(circle,rgba(13,95,255,0.10) 0%,transparent 70%) !important}
+body.light-mode .particle{background:rgba(13,95,255,0.3) !important}
+body.light-mode .timeline::before{background:linear-gradient(180deg,#0d5fff 0%,rgba(13,95,255,0.1) 100%) !important}
+body.light-mode footer{background:rgba(245,247,255,0.9);border-top:1px solid rgba(13,95,255,0.15) !important}
+body.light-mode footer p{color:#3d4466 !important}
+body.light-mode .divider{background:linear-gradient(90deg,transparent,rgba(13,95,255,0.2),transparent) !important}
+body.light-mode .about-tag{background:rgba(13,95,255,0.07) !important;border-color:rgba(13,95,255,0.2) !important;color:#3d4466 !important}
+body.light-mode .font-size-slider{background:rgba(13,95,255,0.15) !important}
+/* Large text — controlled by JS via CSS var */
+body.dyslexia *:not(.hero-name):not(.hero-name span):not(.hero-name *){font-family:'Arial',sans-serif !important;letter-spacing:.06em;word-spacing:.12em;line-height:2}
+body.dyslexia .hero-name,body.dyslexia .hero-name span{font-family:'Bebas Neue',sans-serif !important;letter-spacing:-.01em}
+body.reduced-motion *{animation:none !important;transition-duration:.01ms !important}
+body.reduced-motion .timeline-item,body.reduced-motion .tool-card,body.reduced-motion .edu-card,body.reduced-motion .lang-card,body.reduced-motion .vol-card{opacity:1 !important;transform:none !important}
+/* Colorblind filters */
+body.cb-protanopia{filter:url('#cb-protanopia')}
+body.cb-deuteranopia{filter:url('#cb-deuteranopia')}
+body.cb-tritanopia{filter:url('#cb-tritanopia')}
+body.cb-achromatopsia{filter:url('#cb-achromatopsia')}
+/* Font size slider */
+.font-size-row{display:flex;align-items:center;gap:.6rem;width:100%}
+.font-size-label{font-size:.75rem;color:var(--white-dim);min-width:2rem;text-align:right}
+.font-size-slider{-webkit-appearance:none;appearance:none;flex:1;height:4px;border-radius:2px;background:var(--border);outline:none;cursor:pointer}
+.font-size-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid var(--black)}
+.font-size-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid var(--black)}
+.font-size-slider:focus{outline:none}
+.font-size-slider:focus::-webkit-slider-thumb{outline:3px solid var(--accent);outline-offset:2px}
+/* colorblind select */
+.cb-select{background:rgba(13,95,255,.1);border:1px solid var(--border);color:var(--white-dim);padding:.5em .8em;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;width:100%;outline:none;transition:border-color .2s}
+.cb-select:hover,.cb-select:focus{border-color:var(--blue);color:var(--white)}
+.cb-select option{background:#070d1f;color:var(--white)}
+/* lang indicator */
+.lang-indicator{display:inline-block;margin-left:.5rem;font-size:.65rem;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+/* skip link for keyboard nav */
+.skip-link{position:fixed;top:-100px;left:1rem;background:var(--blue);color:#fff;padding:.5em 1em;border-radius:4px;font-size:.85rem;text-decoration:none;z-index:9999;transition:top .2s}
+.skip-link:focus{top:1rem}
+</style>
+</head>
+<body>
+<a href="#experience" class="skip-link">Pular para o conteúdo</a>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="particles" id="particles"></div>
+
+<!-- ACCESSIBILITY & LANGUAGE BAR -->
+<div class="a11y-bar" role="complementary" aria-label="Acessibilidade e idiomas">
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-label="Opções de acessibilidade e idioma">
+    <div class="a11y-panel-title">⚙️ Acessibilidade</div>
+
+    <button class="a11y-btn" onclick="toggleA11y('high-contrast')" id="btn-contrast" aria-pressed="false">🌑 Alto contraste</button>
+    <button class="a11y-btn" onclick="toggleA11y('light-mode')" id="btn-light" aria-pressed="false">☀️ Modo claro (Light)</button>
+
+    <!-- Font size slider -->
+    <div style="display:flex;flex-direction:column;gap:.35rem">
+      <div style="font-size:.78rem;color:var(--white-dim);display:flex;align-items:center;gap:.4em">🔠 Tamanho do texto &nbsp;<span id="font-size-val" style="color:var(--accent);font-weight:700">5</span></div>
+      <div class="font-size-row">
+        <span class="font-size-label" style="color:var(--white-dim);font-size:.7rem">A</span>
+        <input type="range" class="font-size-slider" id="fontSlider" min="1" max="10" value="5" step="1"
+          aria-label="Tamanho do texto de 1 a 10" oninput="setFontSize(this.value)">
+        <span class="font-size-label" style="font-size:1rem;color:var(--white)">A</span>
+      </div>
+    </div>
+
+    <button class="a11y-btn" onclick="toggleA11y('dyslexia')" id="btn-dyslexia" aria-pressed="false">📖 Fonte para dislexia</button>
+    <button class="a11y-btn" onclick="toggleA11y('reduced-motion')" id="btn-motion" aria-pressed="false">⏸ Reduzir animações</button>
+
+    <div class="a11y-sep"></div>
+    <!-- Colorblind -->
+    <div class="a11y-panel-title">👁️ Daltonismo</div>
+    <select class="cb-select" id="cbSelect" aria-label="Tipo de daltonismo" onchange="setColorblind(this.value)">
+      <option value="">Sem filtro (padrão)</option>
+      <option value="cb-protanopia">Protanopia — ausência do vermelho</option>
+      <option value="cb-deuteranopia">Deuteranopia — ausência do verde</option>
+      <option value="cb-tritanopia">Tritanopia — ausência do azul</option>
+      <option value="cb-achromatopsia">Acromatopsia — visão em tons de cinza</option>
+    </select>
+
+    <div class="a11y-sep"></div>
+    <div class="a11y-panel-title">🌐 Traduzir página</div>
+    <div class="lang-grid">
+      <button class="lang-btn" onclick="translateTo('en')" aria-label="Traduzir para inglês">🇺🇸 English</button>
+      <button class="lang-btn" onclick="translateTo('es')" aria-label="Traduzir para espanhol">🇪🇸 Español</button>
+      <button class="lang-btn" onclick="translateTo('de')" aria-label="Traduzir para alemão">🇩🇪 Deutsch</button>
+      <button class="lang-btn" onclick="translateTo('it')" aria-label="Traduzir para italiano">🇮🇹 Italiano</button>
+      <button class="lang-btn" onclick="translateTo('ja')" aria-label="Traduzir para japonês">🇯🇵 日本語</button>
+      <button class="lang-btn" onclick="translateTo('zh')" aria-label="Traduzir para chinês">🇨🇳 中文</button>
+      <button class="lang-btn" onclick="translateTo('pt')" aria-label="Voltar para português" style="grid-column:span 2">🇧🇷 Português (padrão)</button>
+    </div>
+  </div>
+  <button class="a11y-toggle" onclick="togglePanel()" id="a11yToggle" aria-expanded="false" aria-controls="a11yPanel" aria-label="Abrir opções de acessibilidade">
+    <svg id="a11yIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
+  </button>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">VG<span>.</span>C</a>
+  <ul class="nav-links">
+    <li><a href="#experience" data-i18n="nav_exp">Experiência</a></li>
+    <li><a href="#skills" data-i18n="nav_tools">Ferramentas</a></li>
+    <li><a href="#education" data-i18n="nav_edu">Educação</a></li>
+    <li><a href="#about" data-i18n="nav_about">Sobre</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contato</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag"><span data-i18n="hero_tag">// Disponível para novos projetos · 2026</span></div>
+    <h1 class="hero-name">Vinicius<br><span>G. Capeleti</span></h1>
+    <p class="hero-sub">
+      <strong>Marketing</strong> · <strong>Social Media</strong> · <strong>Design</strong> · <strong>Tech</strong><br>
+      <span data-i18n="hero_sub_loc">Campinas, SP — Criando marcas, conteúdos e experiências digitais há mais de 10 anos.</span>
+    </p>
+    <div class="hero-exp">
+      <div class="hero-exp-num">+10</div>
+      <div class="hero-exp-text" data-i18n="hero_exp_text">anos de<br>experiência</div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="https://guedesvi18c5.myportfolio.com/" target="_blank" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+        Portfólio Gráfico
+      </a>
+      <a href="https://drive.google.com/drive/folders/1RzE_Glh7gLviX9HDEl4xZoS3KJHWOCWm?usp=sharing" target="_blank" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+        Portfólio em Vídeo
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <div class="scroll-dot"></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<div id="portfolio-highlight">
+  <a class="portfolio-card" href="https://guedesvi18c5.myportfolio.com/" target="_blank">
+    <div class="port-corner"></div>
+    <span class="port-badge design">Design Gráfico</span>
+    <span class="port-icon">🎨</span>
+    <div class="port-title">Portfólio Gráfico</div>
+    <p class="port-desc">Identidades visuais, branding, redes sociais, landing pages e materiais impressos para eventos. Mais de 40 clientes atendidos ao longo da carreira.</p>
+    <span class="port-link">Acessar portfólio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </a>
+  <a class="portfolio-card" href="https://drive.google.com/drive/folders/1RzE_Glh7gLviX9HDEl4xZoS3KJHWOCWm?usp=sharing" target="_blank">
+    <div class="port-corner"></div>
+    <span class="port-badge video">Motion & Vídeo</span>
+    <span class="port-icon">🎬</span>
+    <div class="port-title">Portfólio em Vídeo</div>
+    <p class="port-desc">Edição de vídeos, podcasts, cursos, reels e conteúdos audiovisuais. Motion design e estratégias de retenção de clientes para marcas e eventos.</p>
+    <span class="port-link">Ver no Google Drive <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </a>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Experiência</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="job-period">Abril 2024 — Janeiro 2026</div>
+      <div class="job-title">Designer Sênior / Social Media</div>
+      <div class="job-company">Moderna Tecnologia — Certificação Anatel / Inmetro</div>
+      <p class="job-desc">Responsável por toda a comunicação interna e externa, materiais impressos para feiras e eventos, publicações no Instagram, landing pages e vídeos. Desenvolveu estratégias de retenção de clientes, prestou suporte em tráfego pago e gerenciou equipes e orçamentos de marketing.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="job-period">Outubro 2023 — Abril 2024</div>
+      <div class="job-title">Assistente de Marketing</div>
+      <div class="job-company">Uniforte — Construtora</div>
+      <p class="job-desc">Responsável por toda a comunicação interna, aplicando endomarketing e padronização da marca, oferecendo suporte a todos os setores e coordenando toda a criação visual da empresa.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="job-period">Setembro 2021 — Outubro 2023</div>
+      <div class="job-title">Designer Pleno</div>
+      <div class="job-company">Camel — Agência de Marketing</div>
+      <p class="job-desc">Conduzia reuniões com clientes para captação de briefing, criação de identidades visuais, abertura de perfis em redes sociais e gestão de publicações para uma carteira de mais de 40 clientes ativos.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="job-period">Setembro 2019 — Setembro 2021</div>
+      <div class="job-title">Designer Gráfico Jr.</div>
+      <div class="job-company">IBVN</div>
+      <p class="job-desc">Responsável por toda a parte gráfica da instituição: Instagram, Facebook e apresentações, além da edição de cursos e podcasts em formato de vídeo.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="job-period">2014 — 2019</div>
+      <div class="job-title">Início da Carreira em Design & Comunicação</div>
+      <div class="job-company">Projetos freelance & formação profissional</div>
+      <p class="job-desc">Anos iniciais dedicados à construção de uma base sólida em design gráfico, comunicação visual e identidade de marca. Projetos independentes e formação técnica que consolidaram mais de uma década de atuação no mercado criativo.</p>
+    </div>
+  </div>
+
+  <!-- VOLUNTÁRIO -->
+  <div class="vol-section">
+    <div class="section-header" style="margin-bottom:1.2rem">
+      <span class="section-num" style="color:var(--accent)">🤝</span>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.05em">Trabalho Voluntário</h3>
+      <div class="section-line"></div>
+    </div>
+    <div class="vol-cards">
+      <div class="vol-card">
+        <div class="vol-card-icon">⛪</div>
+        <div class="vol-card-title">Coordenação de Mídia — Igreja</div>
+        <div class="vol-card-desc">Desde 2017, coordena voluntariamente a equipe de mídia de uma igreja em Campinas — SP, gerenciando a criação de conteúdo para redes sociais, transmissões ao vivo, edição de vídeos e toda a comunicação visual da comunidade.</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-card-icon">⚽</div>
+        <div class="vol-card-title">Projeto Social Esportivo</div>
+        <div class="vol-card-desc">Participação ativa em projeto social com foco esportivo, contribuindo com comunicação, design e criação de conteúdo para apoiar o desenvolvimento de jovens por meio do esporte.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FERRAMENTAS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Ferramentas & Softwares</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(49,128,239,.15)">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#31A8FF" opacity=".15"/><text x="4" y="17" font-size="13" font-weight="bold" fill="#31A8FF">Ps</text></svg>
+      </div>
+      <div class="tool-name">Photoshop</div>
+      <div class="tool-cat">Adobe</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(157,61,255,.15)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#9D3DFF" opacity=".15"/><text x="4" y="17" font-size="13" font-weight="bold" fill="#9D3DFF">Pr</text></svg>
+      </div>
+      <div class="tool-name">Premiere</div>
+      <div class="tool-cat">Adobe</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(255,155,0,.15)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF9B00" opacity=".15"/><text x="4" y="17" font-size="13" font-weight="bold" fill="#FF9B00">Ai</text></svg>
+      </div>
+      <div class="tool-name">Illustrator</div>
+      <div class="tool-cat">Adobe</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(255,0,100,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#222"/><text x="3" y="17" font-size="12" font-weight="bold" fill="#fff">Cap</text><text x="3" y="22" font-size="7" fill="#ff3257">Cut</text></svg>
+      </div>
+      <div class="tool-name">CapCut</div>
+      <div class="tool-cat">Vídeo</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(66,133,244,.15)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#4285F4" opacity=".15"/><text x="3" y="17" font-size="9" font-weight="bold" fill="#4285F4">Gem</text></svg>
+      </div>
+      <div class="tool-name">Gemini</div>
+      <div class="tool-cat">Google · IA</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(16,163,127,.15)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="12" fill="#10A37F" opacity=".2"/><text x="4" y="17" font-size="11" font-weight="bold" fill="#10A37F">GPT</text></svg>
+      </div>
+      <div class="tool-name">ChatGPT</div>
+      <div class="tool-cat">OpenAI · IA</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(100,200,100,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#64C864" opacity=".15"/><text x="2" y="16" font-size="10" font-weight="bold" fill="#64C864">Man</text><text x="2" y="22" font-size="8" fill="#64C864">us</text></svg>
+      </div>
+      <div class="tool-name">Manus</div>
+      <div class="tool-cat">Agente · IA</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(0,174,239,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00AEEF" opacity=".15"/><text x="1" y="16" font-size="10" font-weight="bold" fill="#00AEEF">Cla</text><text x="1" y="22" font-size="8" fill="#00AEEF">ude</text></svg>
+      </div>
+      <div class="tool-name">Claude</div>
+      <div class="tool-cat">Anthropic · IA</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(0,198,255,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00C6FF" opacity=".15"/><text x="2" y="16" font-size="11" font-weight="bold" fill="#00C6FF">Can</text><text x="2" y="22" font-size="8" fill="#00C6FF">va</text></svg>
+      </div>
+      <div class="tool-name">Canva</div>
+      <div class="tool-cat">Design</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(255,100,50,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6432" opacity=".15"/><text x="2" y="14" font-size="8" font-weight="bold" fill="#FF6432">Great</text><text x="2" y="21" font-size="8" fill="#FF6432">Pages</text></svg>
+      </div>
+      <div class="tool-name">GreatPages</div>
+      <div class="tool-cat">Landing Pages</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(0,105,255,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0069FF" opacity=".15"/><text x="1" y="16" font-size="10" font-weight="bold" fill="#0069FF">Mon</text><text x="1" y="22" font-size="8" fill="#0069FF">day</text></svg>
+      </div>
+      <div class="tool-name">Monday</div>
+      <div class="tool-cat">Gestão</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(255,88,0,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF5800" opacity=".15"/><text x="3" y="15" font-size="8" font-weight="bold" fill="#FF5800">RD</text><text x="1" y="22" font-size="7" fill="#FF5800">Station</text></svg>
+      </div>
+      <div class="tool-name">RD Station</div>
+      <div class="tool-cat">Marketing</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(180,100,255,.12)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#B464FF" opacity=".15"/><text x="2" y="15" font-size="8" font-weight="bold" fill="#B464FF">Mag</text><text x="2" y="22" font-size="8" fill="#B464FF">nific</text></svg>
+      </div>
+      <div class="tool-name">Magnific</div>
+      <div class="tool-cat">IA · Imagem</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-logo" style="background:rgba(23,147,209,.15)">
+        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1793D1" opacity=".2"/><text x="2" y="15" font-size="9" font-weight="bold" fill="#1793D1">Arch</text><text x="2" y="22" font-size="8" fill="#1793D1">Linux</text></svg>
+      </div>
+      <div class="tool-name">Linux Hyprland</div>
+      <div class="tool-cat">Arch · Sistema</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCAÇÃO -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Educação</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-period">Jan 2015 — Dez 2017</div>
+      <div class="edu-title">Tecnólogo em Design Gráfico</div>
+      <div class="edu-place">Bento Quirino</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">Jan 2020 — Dez 2021</div>
+      <div class="edu-title">Superior em Design Gráfico</div>
+      <div class="edu-place">UNIP</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">Fev 2024 — Fev 2025</div>
+      <div class="edu-title">Pós-Graduação em Engenharia de Software</div>
+      <div class="edu-place">Anhanguera</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">Mar 2026 — Fev 2027</div>
+      <div class="edu-title">Desenvolvimento Mobile — Flutter</div>
+      <div class="edu-place">Alura</div>
+      <span class="edu-status">Em andamento</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">2026 — Em andamento</div>
+      <div class="edu-title">Claude IA — Inteligência Artificial & Automação</div>
+      <div class="edu-place">Anthropic / Prática</div>
+      <span class="edu-status">Em estudo</span>
+    </div>
+  </div>
+
+  <!-- IDIOMAS -->
+  <div style="margin-top:3rem">
+    <div class="section-header" style="margin-bottom:1.5rem">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Idiomas</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="lang-row">
+      <div class="lang-card">
+        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iNzIwIiBoZWlnaHQ9IjUwNCIgZmlsbD0iIzAwOUMzQiIvPjxwb2x5Z29uIHBvaW50cz0iMzYwLDQyIDY3OCwyNTIgMzYwLDQ2MiA0MiwyNTIiIGZpbGw9IiNGRkRGMDAiLz48Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNTIiIHI9IjEwOCIgZmlsbD0iIzAwMjc3NiIvPjxwYXRoIGQ9Ik0yNjQsMjIyIFEzNjAsMTc0IDQ1NiwyMjIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTMiIGZpbGw9Im5vbmUiLz48cmVjdCB4PSIyMzYiIHk9IjIzOCIgd2lkdGg9IjI0OCIgaGVpZ2h0PSIyNiIgZmlsbD0id2hpdGUiIHJ4PSIzIi8+PC9zdmc+" alt="Brasil"></div>
+        <div>
+          <div class="lang-name">Português</div>
+          <div class="lang-level">Nativo</div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iNzIwIiBoZWlnaHQ9IjUwNCIgZmlsbD0iI0IyMjIzNCIvPjxyZWN0IHk9IjM4IiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIvPjxyZWN0IHk9IjExNiIgd2lkdGg9IjcyMCIgaGVpZ2h0PSI0MCIgZmlsbD0id2hpdGUiLz48cmVjdCB5PSIxOTMiIHdpZHRoPSI3MjAiIGhlaWdodD0iNDAiIGZpbGw9IndoaXRlIi8+PHJlY3QgeT0iMjcxIiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIvPjxyZWN0IHk9IjM0OCIgd2lkdGg9IjcyMCIgaGVpZ2h0PSI0MCIgZmlsbD0id2hpdGUiLz48cmVjdCB5PSI0MjYiIHdpZHRoPSI3MjAiIGhlaWdodD0iNDAiIGZpbGw9IndoaXRlIi8+PHJlY3Qgd2lkdGg9IjI5MCIgaGVpZ2h0PSIyNzIiIGZpbGw9IiMzQzNCNkUiLz48ZyBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIzNCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0ZXh0IHg9IjI0IiB5PSI0NiI+4piFPC90ZXh0Pjx0ZXh0IHg9IjcyIiB5PSI0NiI+4piFPC90ZXh0Pjx0ZXh0IHg9IjEyMCIgeT0iNDYiPuKYhTwvdGV4dD48dGV4dCB4PSIxNjgiIHk9IjQ2Ij7imIU8L3RleHQ+PHRleHQgeD0iMjE2IiB5PSI0NiI+4piFPC90ZXh0Pjx0ZXh0IHg9IjI2NCIgeT0iNDYiPuKYhTwvdGV4dD48dGV4dCB4PSI0OCIgeT0iOTIiPuKYhTwvdGV4dD48dGV4dCB4PSI5NiIgeT0iOTIiPuKYhTwvdGV4dD48dGV4dCB4PSIxNDQiIHk9IjkyIj7imIU8L3RleHQ+PHRleHQgeD0iMTkyIiB5PSI5MiI+4piFPC90ZXh0Pjx0ZXh0IHg9IjI0MCIgeT0iOTIiPuKYhTwvdGV4dD48dGV4dCB4PSIyNCIgeT0iMTM4Ij7imIU8L3RleHQ+PHRleHQgeD0iNzIiIHk9IjEzOCI+4piFPC90ZXh0Pjx0ZXh0IHg9IjEyMCIgeT0iMTM4Ij7imIU8L3RleHQ+PHRleHQgeD0iMTY4IiB5PSIxMzgiPuKYhTwvdGV4dD48dGV4dCB4PSIyMTYiIHk9IjEzOCI+4piFPC90ZXh0Pjx0ZXh0IHg9IjI2NCIgeT0iMTM4Ij7imIU8L3RleHQ+PHRleHQgeD0iNDgiIHk9IjE4NCI+4piFPC90ZXh0Pjx0ZXh0IHg9Ijk2IiB5PSIxODQiPuKYhTwvdGV4dD48dGV4dCB4PSIxNDQiIHk9IjE4NCI+4piFPC90ZXh0Pjx0ZXh0IHg9IjE5MiIgeT0iMTg0Ij7imIU8L3RleHQ+PHRleHQgeD0iMjQwIiB5PSIxODQiPuKYhTwvdGV4dD48dGV4dCB4PSIyNCIgeT0iMjMwIj7imIU8L3RleHQ+PHRleHQgeD0iNzIiIHk9IjIzMCI+4piFPC90ZXh0Pjx0ZXh0IHg9IjEyMCIgeT0iMjMwIj7imIU8L3RleHQ+PHRleHQgeD0iMTY4IiB5PSIyMzAiPuKYhTwvdGV4dD48dGV4dCB4PSIyMTYiIHk9IjIzMCI+4piFPC90ZXh0Pjx0ZXh0IHg9IjI2NCIgeT0iMjMwIj7imIU8L3RleHQ+PC9nPjwvc3ZnPg==" alt="Estados Unidos"></div>
+        <div>
+          <div class="lang-name">Inglês</div>
+          <div class="lang-level">Avançado</div>
+          <div class="lang-detail">Cambridge University (2015–2021)</div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iNzIwIiBoZWlnaHQ9IjUwNCIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjM2MCIgY3k9IjI1MiIgcj0iMTUwIiBmaWxsPSIjQkMwMDJEIi8+PC9zdmc+" alt="Japão"></div>
+        <div>
+          <div class="lang-name">Japonês</div>
+          <div class="lang-level">Intermediário</div>
+          <div class="lang-detail">Oboenka Inc. — 2024 a 2025</div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iNzIwIiBoZWlnaHQ9IjE2OCIgZmlsbD0iIzAwMCIvPjxyZWN0IHk9IjE2OCIgd2lkdGg9IjcyMCIgaGVpZ2h0PSIxNjgiIGZpbGw9IiNERDAwMDAiLz48cmVjdCB5PSIzMzYiIHdpZHRoPSI3MjAiIGhlaWdodD0iMTY4IiBmaWxsPSIjRkZDRTAwIi8+PC9zdmc+" alt="Alemanha"></div>
+        <div>
+          <div class="lang-name">Alemão</div>
+          <div class="lang-level">Básico</div>
+          <div class="lang-detail">Wizard — 2026 — Em estudo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE & DISC -->
+<section id="about" class="about-section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Um pouco sobre mim</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="about-tags">
+        <span class="about-tag"><span>📖</span> Leitor voraz</span>
+        <span class="about-tag"><span>🎮</span> Gamer</span>
+        <span class="about-tag"><span>🥋</span> Jiu-Jitsu & Muay Thai</span>
+        <span class="about-tag"><span>🏋️</span> Musculação</span>
+        <span class="about-tag"><span>✝️</span> Cristão</span>
+        <span class="about-tag"><span>🤖</span> Tech & IA</span>
+        <span class="about-tag"><span>👨‍👩‍👧</span> Família</span>
+        <span class="about-tag"><span>✈️</span> Viagens</span>
+        <span class="about-tag"><span>📚</span> Estudar sempre</span>
+
+      </div>
+    </div>
+    <div>
+      <div class="disc-card">
+        <div class="disc-subtitle">Perfil Comportamental DISC</div>
+        <div class="disc-title">Monofatorial S</div>
+        <div class="disc-chart" id="discChart">
+          <div class="disc-bar-wrap">
+            <div class="disc-bar-pct">40%</div>
+            <div class="disc-bar-bg"><div class="disc-bar-fill d" style="height:0%" data-h="57%"></div></div>
+            <div class="disc-bar-label">D</div>
+          </div>
+          <div class="disc-bar-wrap">
+            <div class="disc-bar-pct">30%</div>
+            <div class="disc-bar-bg"><div class="disc-bar-fill i" style="height:0%" data-h="43%"></div></div>
+            <div class="disc-bar-label">I</div>
+          </div>
+          <div class="disc-bar-wrap">
+            <div class="disc-bar-pct">70%</div>
+            <div class="disc-bar-bg"><div class="disc-bar-fill s" style="height:0%" data-h="100%"></div></div>
+            <div class="disc-bar-label">S</div>
+          </div>
+          <div class="disc-bar-wrap">
+            <div class="disc-bar-pct">20%</div>
+            <div class="disc-bar-bg"><div class="disc-bar-fill c" style="height:0%" data-h="28%"></div></div>
+            <div class="disc-bar-label">C</div>
+          </div>
+        </div>
+        <div class="disc-result">Alta Estabilidade (S — 70%)</div>
+        <div class="disc-desc">Perfil de alta Estabilidade: valoriza segurança, harmonia e ritmo constante no dia a dia. Reconhecido pela excelente capacidade de ouvir, pela paciência no relacionamento interpessoal e pela lealdade profunda a equipes e processos. Performa melhor em ambientes previsíveis, onde o planejamento e a colaboração se sobressaem à pressa.</div>
+        <a href="https://www.mrcoach.com.br/teste-perfil-comportamental-disc.php" target="_blank" class="disc-link">
+          Fazer o teste DISC ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-text">
+      <div class="hero-tag" style="opacity:1;animation:none;margin-bottom:1rem" data-i18n="contact_tag">// Vamos trabalhar juntos</div>
+      <h2>Pronto para<br><span style="color:var(--blue)">Criar Algo</span><br>Incrível?</h2>
+      <p>Mais de 10 anos criando marcas, conteúdos e experiências digitais. Campinas, SP — disponível para projetos presenciais e remotos.</p>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="https://guedesvi18c5.myportfolio.com/" target="_blank" class="btn btn-primary" style="font-size:.75rem;padding:.6em 1.4em">🎨 Portfólio Gráfico</a>
+        <a href="https://drive.google.com/drive/folders/1RzE_Glh7gLviX9HDEl4xZoS3KJHWOCWm?usp=sharing" target="_blank" class="btn btn-secondary" style="font-size:.75rem;padding:.6em 1.4em">🎬 Portfólio Vídeo</a>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:guedes.vi@gmail.com" class="contact-link">
+        <div class="contact-link-icon">✉️</div>
+        <div><div class="contact-link-label">E-mail</div><div class="contact-link-value">guedes.vi@gmail.com</div></div>
+      </a>
+      <a href="https://wa.me/5519996681819" target="_blank" class="contact-link">
+        <div class="contact-link-icon">💬</div>
+        <div><div class="contact-link-label">WhatsApp</div><div class="contact-link-value">(19) 99668-1819</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/vinicius-capeleti-41154b2ba" target="_blank" class="contact-link">
+        <div class="contact-link-icon">💼</div>
+        <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">vinicius-capeleti</div></div>
+      </a>
+      <a href="https://guedesvi18c5.myportfolio.com/" target="_blank" class="contact-link">
+        <div class="contact-link-icon">🌐</div>
+        <div><div class="contact-link-label">Portfólio Gráfico</div><div class="contact-link-value">guedesvi18c5.myportfolio.com</div></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1RzE_Glh7gLviX9HDEl4xZoS3KJHWOCWm?usp=sharing" target="_blank" class="contact-link">
+        <div class="contact-link-icon">▶️</div>
+        <div><div class="contact-link-label">Portfólio em Vídeo</div><div class="contact-link-value">Google Drive — Motion & Vídeo</div></div>
+      </a>
+      <div class="contact-link">
+        <div class="contact-link-icon">📍</div>
+        <div><div class="contact-link-label">Localização</div><div class="contact-link-value">Campinas, SP — Brasil</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Vinicius G. Capeleti &nbsp;·&nbsp; Marketing · Design · Tech &nbsp;·&nbsp; Campinas, SP</p>
+</footer>
+
+<script>
+// ── Custom Cursor ──
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.transform=`translate(${mx-6}px,${my-6}px)`});
+function animateRing(){rx+=(mx-rx-18)*.12;ry+=(my-ry-18)*.12;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(animateRing)}
+animateRing();
+
+// ── Particles ──
+const container=document.getElementById('particles');
+for(let i=0;i<18;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*3+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s`;container.appendChild(p)}
+
+// ── Bidirectional Scroll Reveal ──
+const animEls = document.querySelectorAll('.timeline-item,.tool-card,.edu-card,.lang-card,.vol-card');
+const scrollObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const el = entry.target;
+    if (entry.isIntersecting) {
+      const siblings = Array.from(el.parentNode.children);
+      const idx = siblings.indexOf(el);
+      setTimeout(() => { el.classList.add('visible'); el.classList.remove('hidden'); }, idx * 80);
+    } else {
+      // Only hide if scrolling back UP (element is below viewport or we scrolled past it going up)
+      const rect = entry.boundingClientRect;
+      if (rect.top > 0) {
+        // Element is below viewport - just became invisible going down, keep it visible
+      } else {
+        // Element is above viewport - user scrolled back up past it
+        el.classList.remove('visible'); el.classList.add('hidden');
+      }
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+animEls.forEach(el => scrollObs.observe(el));
+
+// ── DISC chart bars animate ──
+const discObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.disc-bar-fill').forEach(bar=>{bar.style.height=bar.dataset.h});discObs.unobserve(e.target)}})},{threshold:.3});
+const discEl=document.getElementById('discChart');
+if(discEl)discObs.observe(discEl);
+
+// ── Typewriter ──
+let ri=0,ci=0,twDel=false;
+const sub=document.querySelector('.hero-sub strong');
+if(sub){function type(){const w=typewriterRoles[ri];if(!twDel){sub.textContent=w.slice(0,++ci);if(ci===w.length){twDel=true;setTimeout(type,1800);return}}else{sub.textContent=w.slice(0,--ci);if(ci===0){twDel=false;ri=(ri+1)%typewriterRoles.length}}setTimeout(type,twDel?60:100)}setTimeout(type,2000)}
+
+// ── Accessibility Panel ──
+function togglePanel(){
+  const panel=document.getElementById('a11yPanel');
+  const btn=document.getElementById('a11yToggle');
+  const open=panel.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  const icon=document.getElementById('a11yIcon');
+  if(open){
+    icon.innerHTML='<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+  } else {
+    icon.innerHTML='<line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/>';
+  }
+}
+
+// ── Scroll-follow for a11y bar ──
+(function(){
+  const bar = document.querySelector('.a11y-bar');
+  if(!bar) return;
+  const MARGIN = 80; // px from viewport edges
+  const NAV_H = 70;
+  function updateBarPos(){
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+    const docH = document.documentElement.scrollHeight;
+    // Center in visible viewport area (below nav, above bottom)
+    const visTop = scrollY + NAV_H + MARGIN;
+    const visBot = scrollY + vh - MARGIN;
+    const center = (visTop + visBot) / 2;
+    // Clamp so bar never goes off page
+    const minTop = NAV_H + MARGIN;
+    const maxTop = docH - 100;
+    const target = Math.max(minTop, Math.min(maxTop, center));
+    bar.style.top = target + 'px';
+    bar.style.transform = 'translateY(-50%)';
+  }
+  updateBarPos();
+  let ticking = false;
+  window.addEventListener('scroll', ()=>{
+    if(!ticking){ requestAnimationFrame(()=>{ updateBarPos(); ticking=false; }); ticking=true; }
+  }, {passive:true});
+  window.addEventListener('resize', updateBarPos);
+})();
+function toggleA11y(cls){
+  document.body.classList.toggle(cls);
+  const map={'high-contrast':'contrast','light-mode':'light','dyslexia':'dyslexia','reduced-motion':'motion'};
+  const id='btn-'+map[cls];
+  const btn=document.getElementById(id);
+  const on=document.body.classList.contains(cls);
+  if(btn){btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on)}
+}
+
+// ── Font size slider ──
+const BASE_FONT = 16; // px
+function setFontSize(val){
+  const v = parseInt(val);
+  document.getElementById('font-size-val').textContent = v;
+  // Level 1 = 12px, level 5 = 16px (default), level 10 = 26px
+  const sizes = [12,13,14,15,16,17,18,20,23,26];
+  const px = sizes[v-1];
+  document.documentElement.style.fontSize = px + 'px';
+}
+
+// ── Colorblind filters ──
+function setColorblind(val){
+  ['cb-protanopia','cb-deuteranopia','cb-tritanopia','cb-achromatopsia'].forEach(c=>document.body.classList.remove(c));
+  if(val) document.body.classList.add(val);
+}
+
+
+// ══════════════════════════════════════════════
+// BUILT-IN TRANSLATION SYSTEM — no external API
+// ══════════════════════════════════════════════
+const TRANSLATIONS = {
+  pt: null, // original — restored from data-original
+
+  en: {
+    // Nav
+    nav_exp: 'Experience', nav_tools: 'Tools', nav_edu: 'Education',
+    nav_about: 'About', nav_contact: 'Contact',
+    // Hero
+    hero_tag: '// Available for new projects · 2026',
+    hero_sub_loc: 'Campinas, SP — Creating brands, content and digital experiences for over 10 years.',
+    hero_exp_text: 'years of\nexperience',
+    hero_typewriter: ['Marketing','Social Media','Senior Designer','Motion & Video','Tech & AI'],
+    // Sections
+    sec_experience: 'Experience', sec_tools: 'Tools & Software', sec_edu: 'Education',
+    sec_languages: 'Languages', sec_about: 'Who I Am', sec_contact: 'Contact',
+    sec_volunteer: 'Volunteer Work',
+    // Jobs
+    job1_period: 'April 2024 — January 2026', job1_title: 'Senior Designer / Social Media',
+    job1_company: 'Moderna Tecnologia — Anatel / Inmetro Certification',
+    job1_desc: 'Responsible for all internal and external communications, printed materials for fairs and events, Instagram posts, landing pages and videos. Developed client retention strategies, supported paid traffic campaigns, and managed marketing teams and budgets.',
+    job2_period: 'October 2023 — April 2024', job2_title: 'Marketing Assistant',
+    job2_company: 'Uniforte — Construction Company',
+    job2_desc: 'Responsible for all internal communications, applying endomarketing and brand standardization, providing support to all departments and coordinating all visual creation.',
+    job3_period: 'September 2021 — October 2023', job3_title: 'Mid-Level Designer',
+    job3_company: 'Camel — Marketing Agency',
+    job3_desc: 'Conducted client meetings for briefing, created visual identities, set up social media profiles, and managed content for a portfolio of over 40 active clients.',
+    job4_period: 'September 2019 — September 2021', job4_title: 'Junior Graphic Designer',
+    job4_company: 'IBVN',
+    job4_desc: 'Responsible for all graphic work: Instagram, Facebook and presentations, as well as editing courses and podcasts in video format.',
+    job5_period: '2014 — 2019', job5_title: 'Early Career in Design & Communication',
+    job5_company: 'Freelance projects & professional training',
+    job5_desc: 'Early years dedicated to building a solid foundation in graphic design, visual communication and brand identity. Independent projects and technical training that consolidated over a decade of work in the creative market.',
+    // Volunteer
+    vol1_title: 'Media Coordination — Church',
+    vol1_desc: 'Since 2017, voluntarily coordinates the media team of a church in Campinas — SP, managing content creation for social media, live streams, video editing and all visual communication.',
+    vol2_title: 'Sports Social Project',
+    vol2_desc: 'Active participation in a sports-focused social project, contributing with communication, design and content to support youth development through sport.',
+    // Portfolio
+    port1_badge: 'Graphic Design', port1_title: 'Graphic Portfolio',
+    port1_desc: 'Visual identities, branding, social media, landing pages and printed materials for events. Over 40 clients served throughout the career.',
+    port1_link: 'View portfolio',
+    port2_badge: 'Motion & Video', port2_title: 'Video Portfolio',
+    port2_desc: 'Video editing, podcasts, courses, reels and audiovisual content. Motion design and client retention strategies for brands and events.',
+    port2_link: 'View on Google Drive',
+    // Tools section title
+    tools_title: 'Tools & Software',
+    // Education
+    edu1_title: 'Technology in Graphic Design', edu1_place: 'Bento Quirino',
+    edu2_title: 'Bachelor in Graphic Design', edu2_place: 'UNIP',
+    edu3_title: 'Postgraduate in Software Engineering', edu3_place: 'Anhanguera',
+    edu4_title: 'Mobile Development — Flutter', edu4_place: 'Alura',
+    edu5_title: 'Claude AI — Artificial Intelligence & Automation', edu5_place: 'Anthropic / Practice',
+    edu_status_ongoing: 'Ongoing', edu_status_studying: 'Studying',
+    // Languages
+    lang_pt: 'Portuguese', lang_pt_level: 'Native',
+    lang_en: 'English', lang_en_level: 'Advanced', lang_en_detail: 'Cambridge University (2015–2021)',
+    lang_ja: 'Japanese', lang_ja_level: 'Intermediate', lang_ja_detail: 'Oboenka Inc. — 2024 to 2025',
+    lang_de: 'German', lang_de_level: 'Basic', lang_de_detail: '2026 — Studying',
+    // About tags
+    tag_reader: 'Avid reader', tag_gamer: 'Gamer', tag_martial: 'Jiu-Jitsu & Muay Thai',
+    tag_gym: 'Weightlifting', tag_christian: 'Christian', tag_tech: 'Tech & AI', tag_family: 'Family',
+    // DISC
+    disc_subtitle: 'DISC Behavioral Profile', disc_result: 'High Stability (S — 70%)',
+    disc_desc: 'High Stability profile: values security, harmony and constant rhythm. Recognized for excellent listening skills, patience with people and deep loyalty to teams and processes. Performs best in predictable environments where planning and collaboration prevail over urgency.',
+    disc_link: 'Take the DISC test ↗',
+    // Contact
+    contact_tag: '// Let\'s work together',
+    contact_h2_1: 'Ready to', contact_h2_2: 'Create Something', contact_h2_3: 'Amazing?',
+    contact_p: 'Over 10 years creating brands, content and digital experiences. Campinas, SP — available for in-person and remote projects.',
+    contact_email_lbl: 'E-mail', contact_wa_lbl: 'WhatsApp',
+    contact_li_lbl: 'LinkedIn', contact_port_lbl: 'Graphic Portfolio',
+    contact_video_lbl: 'Video Portfolio', contact_video_val: 'Google Drive — Motion & Video',
+    contact_loc_lbl: 'Location', contact_loc_val: 'Campinas, SP — Brazil',
+    // Footer
+    footer_txt: '© 2026 Vinicius G. Capeleti · Marketing · Design · Tech · Campinas, SP',
+    // Accessibility
+    a11y_title: '♿ Accessibility', a11y_contrast: '🌑 High contrast',
+    a11y_fontsize: '🔠 Text size', a11y_dyslexia: '📖 Dyslexia font',
+    a11y_motion: '⏸ Reduce animations', a11y_cb_title: '👁️ Color blindness',
+    a11y_lang_title: '🌐 Translate page',
+    cb_none: 'No filter (default)', cb_pro: 'Protanopia — no red',
+    cb_deu: 'Deuteranopia — no green', cb_tri: 'Tritanopia — no blue',
+    cb_achr: 'Achromatopsia — grayscale',
+    skip_link: 'Skip to content',
+    scroll_text: 'Scroll',
+    exp_years: 'years of\nexperience',
+  },
+
+  es: {
+    nav_exp:'Experiencia',nav_tools:'Herramientas',nav_edu:'Educación',nav_about:'Sobre mí',nav_contact:'Contacto',
+    hero_tag:'// Disponible para nuevos proyectos · 2026',
+    hero_sub_loc:'Campinas, SP — Creando marcas, contenidos y experiencias digitales por más de 10 años.',
+    hero_exp_text:'años de\nexperiencia',
+    hero_typewriter:['Marketing','Redes Sociales','Diseñador Senior','Motion & Video','Tech & IA'],
+    sec_experience:'Experiencia',sec_tools:'Herramientas y Software',sec_edu:'Educación',
+    sec_languages:'Idiomas',sec_about:'Quién soy',sec_contact:'Contacto',sec_volunteer:'Trabajo Voluntario',
+    job1_period:'Abril 2024 — Enero 2026',job1_title:'Diseñador Senior / Social Media',
+    job1_company:'Moderna Tecnologia — Certificación Anatel / Inmetro',
+    job1_desc:'Responsable de toda la comunicación interna y externa, materiales para ferias y eventos, publicaciones en Instagram, landing pages y videos. Desarrolló estrategias de retención de clientes, apoyó campañas de tráfico pago y gestionó equipos y presupuestos de marketing.',
+    job2_period:'Octubre 2023 — Abril 2024',job2_title:'Asistente de Marketing',
+    job2_company:'Uniforte — Constructora',
+    job2_desc:'Responsable de toda la comunicación interna, aplicando endomarketing y estandarización de marca, dando soporte a todos los sectores y coordinando toda la creación visual.',
+    job3_period:'Septiembre 2021 — Octubre 2023',job3_title:'Diseñador Pleno',
+    job3_company:'Camel — Agencia de Marketing',
+    job3_desc:'Realizaba reuniones con clientes para captación de briefing, creación de identidades visuales, apertura de perfiles en redes sociales y gestión de publicaciones para una cartera de más de 40 clientes activos.',
+    job4_period:'Septiembre 2019 — Septiembre 2021',job4_title:'Diseñador Gráfico Jr.',
+    job4_company:'IBVN',
+    job4_desc:'Responsable de toda la parte gráfica: Instagram, Facebook y presentaciones, además de edición de cursos y podcasts en formato de video.',
+    job5_period:'2014 — 2019',job5_title:'Inicio de Carrera en Diseño & Comunicación',
+    job5_company:'Proyectos freelance y formación profesional',
+    job5_desc:'Primeros años dedicados a construir una base sólida en diseño gráfico, comunicación visual e identidad de marca.',
+    vol1_title:'Coordinación de Medios — Iglesia',
+    vol1_desc:'Desde 2017, coordina voluntariamente el equipo de medios de una iglesia en Campinas, gestionando redes sociales, transmisiones en vivo y edición de videos.',
+    vol2_title:'Proyecto Social Deportivo',
+    vol2_desc:'Participación activa en proyecto social deportivo, contribuyendo con comunicación y diseño para apoyar el desarrollo juvenil.',
+    port1_badge:'Diseño Gráfico',port1_title:'Portafolio Gráfico',
+    port1_desc:'Identidades visuales, branding, redes sociales, landing pages y materiales impresos. Más de 40 clientes atendidos.',
+    port1_link:'Ver portafolio',port2_badge:'Motion & Video',port2_title:'Portafolio en Video',
+    port2_desc:'Edición de videos, podcasts, cursos, reels y contenidos audiovisuales. Motion design y estrategias de retención.',
+    port2_link:'Ver en Google Drive',
+    edu1_title:'Tecnólogo en Diseño Gráfico',edu1_place:'Bento Quirino',
+    edu2_title:'Licenciatura en Diseño Gráfico',edu2_place:'UNIP',
+    edu3_title:'Posgrado en Ingeniería de Software',edu3_place:'Anhanguera',
+    edu4_title:'Desarrollo Móvil — Flutter',edu4_place:'Alura',
+    edu5_title:'Claude IA — Inteligencia Artificial y Automatización',edu5_place:'Anthropic / Práctica',
+    edu_status_ongoing:'En curso',edu_status_studying:'Estudiando',
+    lang_pt:'Portugués',lang_pt_level:'Nativo',lang_en:'Inglés',lang_en_level:'Avanzado',
+    lang_en_detail:'Universidad de Cambridge (2015–2021)',
+    lang_ja:'Japonés',lang_ja_level:'Intermedio',lang_ja_detail:'Oboenka Inc. — 2024 a 2025',
+    lang_de:'Alemán',lang_de_level:'Básico',lang_de_detail:'Wizard — 2026 — En estudio',
+    tag_reader:'Lector ávido',tag_gamer:'Gamer',tag_martial:'Jiu-Jitsu y Muay Thai',
+    tag_gym:'Musculación',tag_christian:'Cristiano',tag_tech:'Tech & IA',tag_family:'Familia',
+    disc_subtitle:'Perfil Comportamental DISC',disc_result:'Alta Estabilidad (S — 70%)',
+    disc_desc:'Perfil de alta Estabilidad: valora la seguridad, harmonía y ritmo constante. Reconocido por excelente capacidad de escucha, paciencia y lealtad profunda a equipos y procesos.',
+    disc_link:'Hacer el test DISC ↗',
+    contact_tag:'// Trabajemos juntos',contact_h2_1:'Listo para',contact_h2_2:'Crear Algo',contact_h2_3:'Increíble?',
+    contact_p:'Más de 10 años creando marcas, contenidos y experiencias digitales. Disponible para proyectos presenciales y remotos.',
+    contact_email_lbl:'Correo',contact_wa_lbl:'WhatsApp',contact_li_lbl:'LinkedIn',
+    contact_port_lbl:'Portafolio Gráfico',contact_video_lbl:'Portafolio en Video',
+    contact_video_val:'Google Drive — Motion & Video',
+    contact_loc_lbl:'Ubicación',contact_loc_val:'Campinas, SP — Brasil',
+    footer_txt:'© 2026 Vinicius G. Capeleti · Marketing · Design · Tech · Campinas, SP',
+    scroll_text:'Scroll',exp_years:'años de\nexperiencia',
+  },
+
+  de: {
+    nav_exp:'Erfahrung',nav_tools:'Werkzeuge',nav_edu:'Bildung',nav_about:'Über mich',nav_contact:'Kontakt',
+    hero_tag:'// Verfügbar für neue Projekte · 2026',
+    hero_sub_loc:'Campinas, SP — Marken, Inhalte und digitale Erlebnisse seit über 10 Jahren.',
+    hero_exp_text:'Jahre\nErfahrung',
+    hero_typewriter:['Marketing','Social Media','Senior Designer','Motion & Video','Tech & KI'],
+    sec_experience:'Erfahrung',sec_tools:'Werkzeuge & Software',sec_edu:'Bildung',
+    sec_languages:'Sprachen',sec_about:'Über mich',sec_contact:'Kontakt',sec_volunteer:'Ehrenamt',
+    job1_period:'April 2024 — Januar 2026',job1_title:'Senior Designer / Social Media',
+    job1_company:'Moderna Tecnologia — Anatel / Inmetro Zertifizierung',
+    job1_desc:'Verantwortlich für die gesamte interne und externe Kommunikation, Messematerialien, Instagram-Posts, Landing Pages und Videos. Entwickelte Kundenbindungsstrategien und verwaltete Marketingteams und Budgets.',
+    job2_period:'Oktober 2023 — April 2024',job2_title:'Marketing-Assistent',job2_company:'Uniforte — Bauunternehmen',
+    job2_desc:'Interne Kommunikation, Endomarketing und Markenstandards. Unterstützung aller Abteilungen und Koordination der visuellen Gestaltung.',
+    job3_period:'September 2021 — Oktober 2023',job3_title:'Mid-Level Designer',job3_company:'Camel — Marketingagentur',
+    job3_desc:'Kundengespräche zur Briefingaufnahme, Erstellung von Corporate Identities, Social-Media-Auftritte und Content-Management für über 40 aktive Kunden.',
+    job4_period:'September 2019 — September 2021',job4_title:'Junior Grafikdesigner',job4_company:'IBVN',
+    job4_desc:'Verantwortlich für Instagram, Facebook, Präsentationen sowie Kurs- und Podcast-Schnitt.',
+    job5_period:'2014 — 2019',job5_title:'Karrierebeginn in Design & Kommunikation',
+    job5_company:'Freelance-Projekte & Berufsausbildung',
+    job5_desc:'Erste Jahre zum Aufbau einer soliden Grundlage in Grafikdesign, visueller Kommunikation und Markenidentität.',
+    vol1_title:'Medienkoordination — Kirche',
+    vol1_desc:'Seit 2017 koordiniert er ehrenamtlich das Medienteam einer Kirche in Campinas: Social Media, Livestreams und Videobearbeitung.',
+    vol2_title:'Soziales Sportprojekt',
+    vol2_desc:'Aktive Beteiligung an einem sozialen Sportprojekt durch Kommunikation und Design.',
+    port1_badge:'Grafikdesign',port1_title:'Grafik-Portfolio',
+    port1_desc:'Visuelle Identitäten, Branding, Social Media, Landing Pages und Druckmaterialien. Über 40 betreute Kunden.',
+    port1_link:'Portfolio ansehen',port2_badge:'Motion & Video',port2_title:'Video-Portfolio',
+    port2_desc:'Videobearbeitung, Podcasts, Kurse, Reels und audiovisuelle Inhalte. Motion Design und Kundenbindungsstrategien.',
+    port2_link:'Auf Google Drive ansehen',
+    edu1_title:'Technologiestudium Grafikdesign',edu1_place:'Bento Quirino',
+    edu2_title:'Bachelor in Grafikdesign',edu2_place:'UNIP',
+    edu3_title:'Postgraduiertenstudium Softwareengineering',edu3_place:'Anhanguera',
+    edu4_title:'Mobile Entwicklung — Flutter',edu4_place:'Alura',
+    edu5_title:'Claude KI — Künstliche Intelligenz & Automatisierung',edu5_place:'Anthropic / Praxis',
+    edu_status_ongoing:'Laufend',edu_status_studying:'Im Studium',
+    lang_pt:'Portugiesisch',lang_pt_level:'Muttersprache',lang_en:'Englisch',lang_en_level:'Fortgeschritten',
+    lang_en_detail:'Universität Cambridge (2015–2021)',
+    lang_ja:'Japanisch',lang_ja_level:'Mittelstufe',lang_ja_detail:'Oboenka Inc. — 2024 bis 2025',
+    lang_de:'Deutsch',lang_de_level:'Grundkenntnisse',lang_de_detail:'Wizard — 2026 — Im Lernen',
+    tag_reader:'Vielleser',tag_gamer:'Gamer',tag_martial:'Jiu-Jitsu & Muay Thai',
+    tag_gym:'Krafttraining',tag_christian:'Christ',tag_tech:'Tech & KI',tag_family:'Familie',
+    disc_subtitle:'DISC Verhaltens­profil',disc_result:'Hohe Stabilität (S — 70%)',
+    disc_desc:'Profil mit hoher Stabilität: schätzt Sicherheit, Harmonie und konstantes Tempo. Bekannt für ausgezeichnetes Zuhören, Geduld und tiefe Loyalität gegenüber Teams und Prozessen.',
+    disc_link:'DISC-Test machen ↗',
+    contact_tag:'// Lass uns zusammenarbeiten',contact_h2_1:'Bereit für',contact_h2_2:'Etwas Großartiges',contact_h2_3:'Zu schaffen?',
+    contact_p:'Über 10 Jahre lang Marken, Inhalte und digitale Erlebnisse geschaffen. Für Vor-Ort- und Remote-Projekte verfügbar.',
+    contact_email_lbl:'E-Mail',contact_wa_lbl:'WhatsApp',contact_li_lbl:'LinkedIn',
+    contact_port_lbl:'Grafik-Portfolio',contact_video_lbl:'Video-Portfolio',
+    contact_video_val:'Google Drive — Motion & Video',
+    contact_loc_lbl:'Standort',contact_loc_val:'Campinas, SP — Brasilien',
+    footer_txt:'© 2026 Vinicius G. Capeleti · Marketing · Design · Tech · Campinas, SP',
+    scroll_text:'Scrollen',exp_years:'Jahre\nErfahrung',
+  },
+
+  it: {
+    nav_exp:'Esperienza',nav_tools:'Strumenti',nav_edu:'Istruzione',nav_about:'Chi sono',nav_contact:'Contatti',
+    hero_tag:'// Disponibile per nuovi progetti · 2026',
+    hero_sub_loc:'Campinas, SP — Creando brand, contenuti ed esperienze digitali da oltre 10 anni.',
+    hero_exp_text:'anni di\nesperienza',
+    hero_typewriter:['Marketing','Social Media','Designer Senior','Motion & Video','Tech & AI'],
+    sec_experience:'Esperienza',sec_tools:'Strumenti e Software',sec_edu:'Istruzione',
+    sec_languages:'Lingue',sec_about:'Chi sono',sec_contact:'Contatti',sec_volunteer:'Volontariato',
+    job1_period:'Aprile 2024 — Gennaio 2026',job1_title:'Designer Senior / Social Media',
+    job1_company:'Moderna Tecnologia — Certificazione Anatel / Inmetro',
+    job1_desc:'Responsabile di tutta la comunicazione interna ed esterna, materiali per fiere ed eventi, post Instagram, landing page e video. Ha sviluppato strategie di fidelizzazione clienti e gestito team e budget marketing.',
+    job2_period:'Ottobre 2023 — Aprile 2024',job2_title:'Assistente Marketing',job2_company:'Uniforte — Impresa Edile',
+    job2_desc:'Responsabile di tutta la comunicazione interna, endomarketing, standardizzazione del brand e supporto a tutti i reparti.',
+    job3_period:'Settembre 2021 — Ottobre 2023',job3_title:'Designer Intermedio',job3_company:'Camel — Agenzia di Marketing',
+    job3_desc:'Riunioni con clienti per il briefing, creazione di identità visive, profili social e gestione contenuti per oltre 40 clienti attivi.',
+    job4_period:'Settembre 2019 — Settembre 2021',job4_title:'Graphic Designer Jr.',job4_company:'IBVN',
+    job4_desc:'Responsabile di Instagram, Facebook, presentazioni e montaggio di corsi e podcast video.',
+    job5_period:'2014 — 2019',job5_title:'Inizio Carriera in Design & Comunicazione',
+    job5_company:'Progetti freelance e formazione professionale',
+    job5_desc:'Anni iniziali dedicati alla costruzione di basi solide in graphic design, comunicazione visiva e brand identity.',
+    vol1_title:'Coordinamento Media — Chiesa',
+    vol1_desc:'Dal 2017 coordina volontariamente il team media di una chiesa a Campinas: social media, live streaming ed editing video.',
+    vol2_title:'Progetto Sociale Sportivo',
+    vol2_desc:'Partecipazione attiva in un progetto sociale sportivo attraverso comunicazione e design.',
+    port1_badge:'Graphic Design',port1_title:'Portfolio Grafico',
+    port1_desc:'Identità visive, branding, social media, landing page e materiali stampati. Oltre 40 clienti serviti.',
+    port1_link:'Vedi portfolio',port2_badge:'Motion & Video',port2_title:'Portfolio Video',
+    port2_desc:'Montaggio video, podcast, corsi, reel e contenuti audiovisivi. Motion design e strategie di retention.',
+    port2_link:'Vedi su Google Drive',
+    edu1_title:'Tecnologia in Graphic Design',edu1_place:'Bento Quirino',
+    edu2_title:'Laurea in Graphic Design',edu2_place:'UNIP',
+    edu3_title:'Post-laurea in Ingegneria del Software',edu3_place:'Anhanguera',
+    edu4_title:'Sviluppo Mobile — Flutter',edu4_place:'Alura',
+    edu5_title:'Claude AI — Intelligenza Artificiale & Automazione',edu5_place:'Anthropic / Pratica',
+    edu_status_ongoing:'In corso',edu_status_studying:'In studio',
+    lang_pt:'Portoghese',lang_pt_level:'Madrelingua',lang_en:'Inglese',lang_en_level:'Avanzato',
+    lang_en_detail:'Università di Cambridge (2015–2021)',
+    lang_ja:'Giapponese',lang_ja_level:'Intermedio',lang_ja_detail:'Oboenka Inc. — 2024 al 2025',
+    lang_de:'Tedesco',lang_de_level:'Base',lang_de_detail:'Wizard — 2026 — In studio',
+    tag_reader:'Lettore appassionato',tag_gamer:'Gamer',tag_martial:'Jiu-Jitsu e Muay Thai',
+    tag_gym:'Palestra',tag_christian:'Cristiano',tag_tech:'Tech & AI',tag_family:'Famiglia',
+    disc_subtitle:'Profilo Comportamentale DISC',disc_result:'Alta Stabilità (S — 70%)',
+    disc_desc:'Profilo ad alta Stabilità: apprezza sicurezza, armonia e ritmo costante. Riconosciuto per l\'ottima capacità di ascolto, pazienza e lealtà profonda verso team e processi.',
+    disc_link:'Fai il test DISC ↗',
+    contact_tag:'// Lavoriamo insieme',contact_h2_1:'Pronto a',contact_h2_2:'Creare Qualcosa',contact_h2_3:'di Incredibile?',
+    contact_p:'Oltre 10 anni creando brand, contenuti ed esperienze digitali. Disponibile per progetti in presenza e da remoto.',
+    contact_email_lbl:'E-mail',contact_wa_lbl:'WhatsApp',contact_li_lbl:'LinkedIn',
+    contact_port_lbl:'Portfolio Grafico',contact_video_lbl:'Portfolio Video',
+    contact_video_val:'Google Drive — Motion & Video',
+    contact_loc_lbl:'Posizione',contact_loc_val:'Campinas, SP — Brasile',
+    footer_txt:'© 2026 Vinicius G. Capeleti · Marketing · Design · Tech · Campinas, SP',
+    scroll_text:'Scorri',exp_years:'anni di\nesperienza',
+  },
+
+  ja: {
+    nav_exp:'経験',nav_tools:'ツール',nav_edu:'学歴',nav_about:'自己紹介',nav_contact:'連絡先',
+    hero_tag:'// 新プロジェクト募集中 · 2026',
+    hero_sub_loc:'カンピーナス、SP — 10年以上にわたりブランド・コンテンツ・デジタル体験を創造。',
+    hero_exp_text:'年以上の\n経験',
+    hero_typewriter:['マーケティング','ソーシャルメディア','シニアデザイナー','モーション・動画','テック & AI'],
+    sec_experience:'職歴',sec_tools:'ツール・ソフトウェア',sec_edu:'学歴',
+    sec_languages:'言語',sec_about:'自己紹介',sec_contact:'連絡先',sec_volunteer:'ボランティア活動',
+    job1_period:'2024年4月 — 2026年1月',job1_title:'シニアデザイナー / ソーシャルメディア',
+    job1_company:'Moderna Tecnologia — Anatel / Inmetro認証',
+    job1_desc:'社内外のコミュニケーション全般、展示会資料、Instagram投稿、ランディングページ、動画制作を担当。顧客維持戦略の立案、広告支援、マーケティングチームおよび予算の管理を行った。',
+    job2_period:'2023年10月 — 2024年4月',job2_title:'マーケティングアシスタント',job2_company:'Uniforte — 建設会社',
+    job2_desc:'社内コミュニケーション全般、エンドマーケティング、ブランド標準化、全部門へのサポートおよびビジュアル制作の調整を担当。',
+    job3_period:'2021年9月 — 2023年10月',job3_title:'ミッドレベルデザイナー',job3_company:'Camel — マーケティングエージェンシー',
+    job3_desc:'クライアントとのブリーフィング会議、ビジュアルアイデンティティの作成、SNSアカウント開設、40社以上のクライアントへのコンテンツ管理。',
+    job4_period:'2019年9月 — 2021年9月',job4_title:'グラフィックデザイナー（初級）',job4_company:'IBVN',
+    job4_desc:'Instagram、Facebook、プレゼンテーション、動画形式のコース・ポッドキャスト編集を担当。',
+    job5_period:'2014 — 2019',job5_title:'デザイン＆コミュニケーションのキャリア初期',
+    job5_company:'フリーランスと職業訓練',
+    job5_desc:'グラフィックデザイン、ビジュアルコミュニケーション、ブランドアイデンティティの基盤を構築した時期。',
+    vol1_title:'メディアコーディネーション — 教会',
+    vol1_desc:'2017年から、カンピーナスの教会でSNS・ライブ配信・動画編集のボランティアチームを統括。',
+    vol2_title:'スポーツ社会プロジェクト',
+    vol2_desc:'スポーツを通じた青少年支援プロジェクトでコミュニケーションとデザインを担当。',
+    port1_badge:'グラフィックデザイン',port1_title:'グラフィックポートフォリオ',
+    port1_desc:'ビジュアルアイデンティティ、ブランディング、SNS、ランディングページ、印刷物。40社以上のクライアントに対応。',
+    port1_link:'ポートフォリオを見る',port2_badge:'モーション & 動画',port2_title:'動画ポートフォリオ',
+    port2_desc:'動画編集、ポッドキャスト、コース、リール。モーションデザインと顧客維持戦略。',
+    port2_link:'Google Driveで見る',
+    edu1_title:'グラフィックデザイン技術者',edu1_place:'Bento Quirino',
+    edu2_title:'グラフィックデザイン学士',edu2_place:'UNIP',
+    edu3_title:'ソフトウェアエンジニアリング大学院',edu3_place:'Anhanguera',
+    edu4_title:'モバイル開発 — Flutter',edu4_place:'Alura',
+    edu5_title:'Claude AI — 人工知能 & 自動化',edu5_place:'Anthropic / 実践',
+    edu_status_ongoing:'進行中',edu_status_studying:'学習中',
+    lang_pt:'ポルトガル語',lang_pt_level:'母語',lang_en:'英語',lang_en_level:'上級',
+    lang_en_detail:'ケンブリッジ大学（2015–2021）',
+    lang_ja:'日本語',lang_ja_level:'中級',lang_ja_detail:'Oboenka Inc. — 2024〜2025',
+    lang_de:'ドイツ語',lang_de_level:'初級',lang_de_detail:'Wizard — 2026 — 学習中',
+    tag_reader:'読書好き',tag_gamer:'ゲーマー',tag_martial:'柔術 & ムエタイ',
+    tag_gym:'筋力トレーニング',tag_christian:'クリスチャン',tag_tech:'テック & AI',tag_family:'家族',
+    disc_subtitle:'DISC 行動特性プロファイル',disc_result:'高安定性（S — 70%）',
+    disc_desc:'高い安定性のプロファイル：安心感、調和、一定のリズムを大切にする。優れた傾聴力、忍耐力、チームへの深い忠誠心で知られる。',
+    disc_link:'DISCテストを受ける ↗',
+    contact_tag:'// 一緒に仕事をしましょう',contact_h2_1:'素晴らしいものを',contact_h2_2:'一緒に',contact_h2_3:'創りませんか？',
+    contact_p:'10年以上にわたりブランド・コンテンツ・デジタル体験を創造。対面・リモートのプロジェクトどちらも対応可能。',
+    contact_email_lbl:'メール',contact_wa_lbl:'WhatsApp',contact_li_lbl:'LinkedIn',
+    contact_port_lbl:'グラフィックポートフォリオ',contact_video_lbl:'動画ポートフォリオ',
+    contact_video_val:'Google Drive — モーション & 動画',
+    contact_loc_lbl:'所在地',contact_loc_val:'カンピーナス、SP — ブラジル',
+    footer_txt:'© 2026 Vinicius G. Capeleti · マーケティング · デザイン · テック · カンピーナス、SP',
+    scroll_text:'スクロール',exp_years:'年以上の\n経験',
+  },
+
+  zh: {
+    nav_exp:'工作经历',nav_tools:'工具',nav_edu:'教育',nav_about:'关于我',nav_contact:'联系',
+    hero_tag:'// 欢迎新项目合作 · 2026',
+    hero_sub_loc:'坎皮纳斯，SP — 超过10年打造品牌、内容与数字体验。',
+    hero_exp_text:'年以上\n从业经验',
+    hero_typewriter:['市场营销','社交媒体','高级设计师','动态影像','科技 & AI'],
+    sec_experience:'工作经历',sec_tools:'工具与软件',sec_edu:'教育背景',
+    sec_languages:'语言能力',sec_about:'关于我',sec_contact:'联系方式',sec_volunteer:'志愿工作',
+    job1_period:'2024年4月 — 2026年1月',job1_title:'高级设计师 / 社交媒体',
+    job1_company:'Moderna Tecnologia — Anatel / Inmetro认证',
+    job1_desc:'负责所有内外部传播、展会及活动印刷品、Instagram帖子、落地页和视频。制定客户留存策略，支持付费流量推广，管理营销团队及预算。',
+    job2_period:'2023年10月 — 2024年4月',job2_title:'市场营销助理',job2_company:'Uniforte — 建筑公司',
+    job2_desc:'负责内部传播、品牌标准化、向各部门提供支持以及所有视觉创作的协调工作。',
+    job3_period:'2021年9月 — 2023年10月',job3_title:'中级设计师',job3_company:'Camel — 营销机构',
+    job3_desc:'与客户会面获取简报，创作视觉识别系统，开设社交媒体账号，为40余个活跃客户管理内容发布。',
+    job4_period:'2019年9月 — 2021年9月',job4_title:'初级平面设计师',job4_company:'IBVN',
+    job4_desc:'负责Instagram、Facebook、演示文稿及课程和播客的视频剪辑工作。',
+    job5_period:'2014 — 2019',job5_title:'设计与传播职业起步阶段',
+    job5_company:'自由职业项目与职业培训',
+    job5_desc:'早年专注于平面设计、视觉传播和品牌形象的基础建设，奠定了十年以上创意市场从业生涯的基础。',
+    vol1_title:'媒体协调 — 教会',
+    vol1_desc:'自2017年起，在坎皮纳斯一所教会自愿领导媒体团队，负责社交媒体内容、直播、视频剪辑及视觉传播。',
+    vol2_title:'体育社会项目',
+    vol2_desc:'积极参与以体育为核心的社会项目，通过传播和设计支持青少年发展。',
+    port1_badge:'平面设计',port1_title:'平面作品集',
+    port1_desc:'视觉识别、品牌塑造、社交媒体、落地页及印刷品。职业生涯服务超过40位客户。',
+    port1_link:'查看作品集',port2_badge:'动态影像 & 视频',port2_title:'视频作品集',
+    port2_desc:'视频剪辑、播客、课程、Reels及视听内容。动态设计和品牌客户留存策略。',
+    port2_link:'在Google Drive查看',
+    edu1_title:'平面设计技术学位',edu1_place:'Bento Quirino',
+    edu2_title:'平面设计本科',edu2_place:'UNIP',
+    edu3_title:'软件工程研究生',edu3_place:'Anhanguera',
+    edu4_title:'移动开发 — Flutter',edu4_place:'Alura',
+    edu5_title:'Claude AI — 人工智能与自动化',edu5_place:'Anthropic / 实践',
+    edu_status_ongoing:'进行中',edu_status_studying:'学习中',
+    lang_pt:'葡萄牙语',lang_pt_level:'母语',lang_en:'英语',lang_en_level:'高级',
+    lang_en_detail:'剑桥大学（2015–2021）',
+    lang_ja:'日语',lang_ja_level:'中级',lang_ja_detail:'Oboenka Inc. — 2024至2025',
+    lang_de:'德语',lang_de_level:'初级',lang_de_detail:'Wizard — 2026 — 学习中',
+    tag_reader:'热爱阅读',tag_gamer:'游戏玩家',tag_martial:'柔术 & 泰拳',
+    tag_gym:'健身',tag_christian:'基督徒',tag_tech:'科技 & AI',tag_family:'家庭',
+    disc_subtitle:'DISC行为特征分析',disc_result:'高稳定型（S — 70%）',
+    disc_desc:'高稳定型特征：重视安全感、和谐与稳定节奏。以出色的倾听能力、耐心和对团队与流程的深度忠诚著称。',
+    disc_link:'参加DISC测试 ↗',
+    contact_tag:'// 一起合作',contact_h2_1:'准备好',contact_h2_2:'创造精彩',contact_h2_3:'了吗？',
+    contact_p:'十年以上打造品牌、内容与数字体验。欢迎线下及远程项目合作。',
+    contact_email_lbl:'电子邮件',contact_wa_lbl:'WhatsApp',contact_li_lbl:'LinkedIn',
+    contact_port_lbl:'平面作品集',contact_video_lbl:'视频作品集',
+    contact_video_val:'Google Drive — 动态影像 & 视频',
+    contact_loc_lbl:'所在地',contact_loc_val:'巴西 坎皮纳斯 SP',
+    footer_txt:'© 2026 Vinicius G. Capeleti · 市场营销 · 设计 · 科技 · 坎皮纳斯，SP',
+    scroll_text:'滚动',exp_years:'年以上\n从业经验',
+  },
+};
+
+// ── Map of DOM elements to translation keys ──
+const I18N_MAP = [
+  // Nav
+  {sel:'[data-i18n="nav_exp"]',key:'nav_exp'},
+  {sel:'[data-i18n="nav_tools"]',key:'nav_tools'},
+  {sel:'[data-i18n="nav_edu"]',key:'nav_edu'},
+  {sel:'[data-i18n="nav_about"]',key:'nav_about'},
+  {sel:'[data-i18n="nav_contact"]',key:'nav_contact'},
+  {sel:'[data-i18n="hero_tag"]',key:'hero_tag'},
+  {sel:'[data-i18n="hero_sub_loc"]',key:'hero_sub_loc'},
+  {sel:'.hero-exp-text',key:'hero_exp_text',html:true},
+  // Section titles (by order)
+  {idx:0,sel:'.section-title',key:'sec_experience'},
+  {idx:1,sel:'.section-title',key:'sec_volunteer'},
+  {idx:2,sel:'.section-title',key:'sec_tools'},
+  {idx:3,sel:'.section-title',key:'sec_edu'},
+  {idx:4,sel:'.section-title',key:'sec_languages'},
+  {idx:5,sel:'.section-title',key:'sec_about'},
+  // Jobs - periods
+  {idx:0,sel:'.job-period',key:'job1_period'},
+  {idx:1,sel:'.job-period',key:'job2_period'},
+  {idx:2,sel:'.job-period',key:'job3_period'},
+  {idx:3,sel:'.job-period',key:'job4_period'},
+  {idx:4,sel:'.job-period',key:'job5_period'},
+  // Jobs - titles
+  {idx:0,sel:'.job-title',key:'job1_title'},
+  {idx:1,sel:'.job-title',key:'job2_title'},
+  {idx:2,sel:'.job-title',key:'job3_title'},
+  {idx:3,sel:'.job-title',key:'job4_title'},
+  {idx:4,sel:'.job-title',key:'job5_title'},
+  // Jobs - companies
+  {idx:0,sel:'.job-company',key:'job1_company'},
+  {idx:1,sel:'.job-company',key:'job2_company'},
+  {idx:2,sel:'.job-company',key:'job3_company'},
+  {idx:3,sel:'.job-company',key:'job4_company'},
+  {idx:4,sel:'.job-company',key:'job5_company'},
+  // Jobs - descriptions
+  {idx:0,sel:'.job-desc',key:'job1_desc'},
+  {idx:1,sel:'.job-desc',key:'job2_desc'},
+  {idx:2,sel:'.job-desc',key:'job3_desc'},
+  {idx:3,sel:'.job-desc',key:'job4_desc'},
+  {idx:4,sel:'.job-desc',key:'job5_desc'},
+  // Volunteer
+  {idx:0,sel:'.vol-card-title',key:'vol1_title'},
+  {idx:1,sel:'.vol-card-title',key:'vol2_title'},
+  {idx:0,sel:'.vol-card-desc',key:'vol1_desc'},
+  {idx:1,sel:'.vol-card-desc',key:'vol2_desc'},
+  // Portfolio
+  {idx:0,sel:'.port-badge',key:'port1_badge'},
+  {idx:1,sel:'.port-badge',key:'port2_badge'},
+  {idx:0,sel:'.port-title',key:'port1_title'},
+  {idx:1,sel:'.port-title',key:'port2_title'},
+  {idx:0,sel:'.port-desc',key:'port1_desc'},
+  {idx:1,sel:'.port-desc',key:'port2_desc'},
+  {idx:0,sel:'.port-link',key:'port1_link',partial:true},
+  {idx:1,sel:'.port-link',key:'port2_link',partial:true},
+  // Education titles
+  {idx:0,sel:'.edu-title',key:'edu1_title'},
+  {idx:1,sel:'.edu-title',key:'edu2_title'},
+  {idx:2,sel:'.edu-title',key:'edu3_title'},
+  {idx:3,sel:'.edu-title',key:'edu4_title'},
+  {idx:4,sel:'.edu-title',key:'edu5_title'},
+  {idx:0,sel:'.edu-place',key:'edu1_place'},
+  {idx:1,sel:'.edu-place',key:'edu2_place'},
+  {idx:2,sel:'.edu-place',key:'edu3_place'},
+  {idx:3,sel:'.edu-place',key:'edu4_place'},
+  {idx:4,sel:'.edu-place',key:'edu5_place'},
+  {idx:0,sel:'.edu-status',key:'edu_status_ongoing'},
+  {idx:1,sel:'.edu-status',key:'edu_status_studying'},
+  // Languages
+  {idx:0,sel:'.lang-name',key:'lang_pt'},
+  {idx:1,sel:'.lang-name',key:'lang_en'},
+  {idx:2,sel:'.lang-name',key:'lang_ja'},
+  {idx:3,sel:'.lang-name',key:'lang_de'},
+  {idx:0,sel:'.lang-level',key:'lang_pt_level'},
+  {idx:1,sel:'.lang-level',key:'lang_en_level'},
+  {idx:2,sel:'.lang-level',key:'lang_ja_level'},
+  {idx:3,sel:'.lang-level',key:'lang_de_level'},
+  {idx:0,sel:'.lang-detail',key:'lang_en_detail'},
+  {idx:1,sel:'.lang-detail',key:'lang_ja_detail'},
+  {idx:2,sel:'.lang-detail',key:'lang_de_detail'},
+  // About tags
+  {idx:0,sel:'.about-tag',key:'tag_reader',partial:true},
+  {idx:1,sel:'.about-tag',key:'tag_gamer',partial:true},
+  {idx:2,sel:'.about-tag',key:'tag_martial',partial:true},
+  {idx:3,sel:'.about-tag',key:'tag_gym',partial:true},
+  {idx:4,sel:'.about-tag',key:'tag_christian',partial:true},
+  {idx:5,sel:'.about-tag',key:'tag_tech',partial:true},
+  {idx:6,sel:'.about-tag',key:'tag_family',partial:true},
+  // DISC
+  {sel:'.disc-subtitle',key:'disc_subtitle'},
+  {sel:'.disc-result',key:'disc_result'},
+  {sel:'.disc-desc',key:'disc_desc'},
+  {sel:'.disc-link',key:'disc_link',partial:true},
+  // Contact
+  {sel:'[data-i18n="contact_tag"]',key:'contact_tag'},
+  {sel:'.scroll-text',key:'scroll_text'},
+  {idx:0,sel:'.contact-link-label',key:'contact_email_lbl'},
+  {idx:1,sel:'.contact-link-label',key:'contact_wa_lbl'},
+  {idx:2,sel:'.contact-link-label',key:'contact_li_lbl'},
+  {idx:3,sel:'.contact-link-label',key:'contact_port_lbl'},
+  {idx:4,sel:'.contact-link-label',key:'contact_video_lbl'},
+  {idx:4,sel:'.contact-link-value',key:'contact_video_val'},
+  {idx:5,sel:'.contact-link-label',key:'contact_loc_lbl'},
+  {idx:5,sel:'.contact-link-value',key:'contact_loc_val'},
+  // Footer
+  {sel:'footer p',key:'footer_txt'},
+];
+
+// Store originals once
+let originalsStored = false;
+function storeOriginals(){
+  if(originalsStored) return;
+  I18N_MAP.forEach(item => {
+    const els = document.querySelectorAll(item.sel);
+    const el = item.idx !== undefined ? els[item.idx] : els[0];
+    if(el && !el.dataset.orig){
+      el.dataset.orig = item.html ? el.innerHTML : el.textContent;
+    }
+  });
+  // Store typewriter originals
+  originalsStored = true;
+}
+
+let currentLang = 'pt';
+let typewriterRoles = ['Marketing','Social Media','Designer Sênior','Motion & Vídeo','Tech & IA'];
+
+function translateTo(lang){
+  storeOriginals();
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  currentLang = lang;
+
+  const t = lang === 'pt' ? null : TRANSLATIONS[lang];
+
+  I18N_MAP.forEach(item => {
+    const els = document.querySelectorAll(item.sel);
+    const el = item.idx !== undefined ? els[item.idx] : els[0];
+    if(!el) return;
+    if(lang === 'pt'){
+      // Restore original
+      if(el.dataset.orig !== undefined){
+        if(item.html) el.innerHTML = el.dataset.orig;
+        else if(item.partial){
+          // For partial (has child elements like span), only update text node
+          const txt = el.dataset.orig;
+          const spans = el.querySelectorAll('span');
+          if(spans.length){
+            // Remove text nodes, keep spans
+            Array.from(el.childNodes).forEach(n=>{ if(n.nodeType===3) n.remove(); });
+            el.appendChild(document.createTextNode(' '+txt.replace(/[^\s\S]/,'')));
+          } else {
+            el.textContent = txt;
+          }
+        } else {
+          el.textContent = el.dataset.orig;
+        }
+      }
+    } else {
+      const val = t[item.key];
+      if(val === undefined) return;
+      if(item.html){ el.innerHTML = val.replace(/\n/g,'<br>'); }
+      else if(item.partial){
+        // Keep emoji span, replace text after it
+        const span = el.querySelector('span');
+        if(span){ el.innerHTML = ''; el.appendChild(span); el.appendChild(document.createTextNode(' '+val)); }
+        else { el.textContent = val; }
+      } else {
+        el.textContent = val;
+      }
+    }
+  });
+
+  // Update typewriter array
+  typewriterRoles = (t && t.hero_typewriter) ? t.hero_typewriter : ['Marketing','Social Media','Designer Sênior','Motion & Vídeo','Tech & IA'];
+
+  // Update contact section heading
+  if(t){
+    const h2 = document.querySelector('.contact-text h2');
+    if(h2) h2.innerHTML = `${t.contact_h2_1}<br><span style="color:var(--blue)">${t.contact_h2_2}</span><br>${t.contact_h2_3}`;
+    const cp = document.querySelector('.contact-text p');
+    if(cp) cp.textContent = t.contact_p;
+  } else {
+    const h2 = document.querySelector('.contact-text h2');
+    if(h2) h2.innerHTML = 'Pronto para<br><span style="color:var(--blue)">Criar Algo</span><br>Incrível?';
+    const cp = document.querySelector('.contact-text p');
+    if(cp) cp.textContent = 'Mais de 10 anos criando marcas, conteúdos e experiências digitais. Campinas, SP — disponível para projetos presenciais e remotos.';
+  }
+
+  // Show language indicator in nav
+  const existing = document.getElementById('lang-indicator');
+  if(existing) existing.remove();
+  if(lang !== 'pt'){
+    const flags = {en:'🇺🇸',es:'🇪🇸',de:'🇩🇪',it:'🇮🇹',ja:'🇯🇵',zh:'🇨🇳'};
+    const ind = document.createElement('span');
+    ind.id = 'lang-indicator';
+    ind.className = 'lang-indicator';
+    ind.textContent = flags[lang]+' '+lang.toUpperCase();
+    document.querySelector('.nav-logo').appendChild(ind);
+  }
+}
+</script>
+<!-- SVG colorblind filters (hidden) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <!-- Protanopia: red-blind -->
+    <filter id="cb-protanopia">
+      <feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0"/>
+    </filter>
+    <!-- Deuteranopia: green-blind -->
+    <filter id="cb-deuteranopia">
+      <feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/>
+    </filter>
+    <!-- Tritanopia: blue-blind -->
+    <filter id="cb-tritanopia">
+      <feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.433,0.567,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/>
+    </filter>
+    <!-- Achromatopsia: full grayscale -->
+    <filter id="cb-achromatopsia">
+      <feColorMatrix type="matrix" values="0.299,0.587,0.114,0,0 0.299,0.587,0.114,0,0 0.299,0.587,0.114,0,0 0,0,0,1,0"/>
+    </filter>
+  </defs>
+</svg>
+</body>
+</html>
