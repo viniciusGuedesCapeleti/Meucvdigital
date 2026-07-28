@@ -98,6 +98,21 @@ section{position:relative;z-index:1;padding:5rem 8vw}
 .vol-card-title{font-weight:700;font-size:.95rem;margin-bottom:.3rem}
 .vol-card-desc{font-size:.8rem;color:var(--white-dim);line-height:1.5}
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem}
+.tools-category{margin-bottom:2.5rem}
+.tools-category-label{
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;
+  letter-spacing:.1em;
+  color:var(--white);
+  background:linear-gradient(90deg,rgba(13,95,255,.2),rgba(13,95,255,.05));
+  border-left:3px solid var(--blue);
+  padding:.45em 1.2em .45em .9em;
+  border-radius:0 4px 4px 0;
+  margin-bottom:1rem;
+}
 .tool-card{border:1px solid var(--border);border-radius:8px;padding:1.5rem 1rem;background:linear-gradient(135deg,rgba(13,22,40,.8),rgba(7,13,31,.8));display:flex;flex-direction:column;align-items:center;gap:.7rem;transition:all .3s;opacity:0;transform:translateY(20px);text-align:center;cursor:none}
 .tool-card.visible{opacity:1;transform:translateY(0)}
 .tool-card.hidden{opacity:0;transform:translateY(20px)}
@@ -480,7 +495,7 @@ body.cb-achromatopsia{filter:url('#cb-achromatopsia')}
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="job-period">Setembro 2021 — Abril 2024</div>
-      <div class="job-title">Designer Pleno</div>
+      <div class="job-title">Designer Pleno / Social Media</div>
       <div class="job-company">Camel — Agência de Marketing</div>
       <p class="job-desc">Conduzia reuniões com clientes para captação de briefing, criação de identidades visuais, abertura de perfis em redes sociais e gestão de publicações para uma carteira de mais de 40 clientes ativos.</p>
     </div>
@@ -531,250 +546,188 @@ body.cb-achromatopsia{filter:url('#cb-achromatopsia')}
     <h2 class="section-title">Ferramentas & Softwares</h2>
     <div class="section-line"></div>
   </div>
-  <div class="tools-grid">
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(49,128,239,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#31A8FF" opacity=".15"/><text x="4" y="17" font-size="13" font-weight="bold" fill="#31A8FF">Ps</text></svg>
+
+  <!-- 🎨 DESIGN & CRIAÇÃO -->
+  <div class="tools-category">
+    <div class="tools-category-label">🎨 Design & Criação</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(49,168,255,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#31A8FF" opacity=".2"/><text x="3" y="17" font-size="13" font-weight="bold" fill="#31A8FF">Ps</text></svg></div>
+        <div class="tool-name">Photoshop</div><div class="tool-cat">Adobe</div>
       </div>
-      <div class="tool-name">Photoshop</div>
-      <div class="tool-cat">Adobe</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(157,61,255,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#9D3DFF" opacity=".15"/><text x="4" y="17" font-size="13" font-weight="bold" fill="#9D3DFF">Pr</text></svg>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(157,61,255,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#9D3DFF" opacity=".2"/><text x="3" y="17" font-size="13" font-weight="bold" fill="#9D3DFF">Pr</text></svg></div>
+        <div class="tool-name">Premiere</div><div class="tool-cat">Adobe</div>
       </div>
-      <div class="tool-name">Premiere</div>
-      <div class="tool-cat">Adobe</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,155,0,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF9B00" opacity=".15"/><text x="4" y="17" font-size="13" font-weight="bold" fill="#FF9B00">Ai</text></svg>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,155,0,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF9B00" opacity=".2"/><text x="3" y="17" font-size="13" font-weight="bold" fill="#FF9B00">Ai</text></svg></div>
+        <div class="tool-name">Illustrator</div><div class="tool-cat">Adobe</div>
       </div>
-      <div class="tool-name">Illustrator</div>
-      <div class="tool-cat">Adobe</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,0,100,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#222"/><text x="3" y="17" font-size="12" font-weight="bold" fill="#fff">Cap</text><text x="3" y="22" font-size="7" fill="#ff3257">Cut</text></svg>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,50,87,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#222"/><text x="2" y="16" font-size="11" font-weight="bold" fill="#fff">Cap</text><text x="3" y="22" font-size="7" fill="#ff3257">Cut</text></svg></div>
+        <div class="tool-name">CapCut</div><div class="tool-cat">Vídeo</div>
       </div>
-      <div class="tool-name">CapCut</div>
-      <div class="tool-cat">Vídeo</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(66,133,244,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#4285F4" opacity=".15"/><text x="3" y="17" font-size="9" font-weight="bold" fill="#4285F4">Gem</text></svg>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(0,198,255,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00C6FF" opacity=".2"/><text x="2" y="16" font-size="11" font-weight="bold" fill="#00C6FF">Can</text><text x="2" y="22" font-size="8" fill="#00C6FF">va</text></svg></div>
+        <div class="tool-name">Canva</div><div class="tool-cat">Design</div>
       </div>
-      <div class="tool-name">Gemini</div>
-      <div class="tool-cat">Google · IA</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(16,163,127,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="12" fill="#10A37F" opacity=".2"/><text x="4" y="17" font-size="11" font-weight="bold" fill="#10A37F">GPT</text></svg>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(180,100,255,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#B464FF" opacity=".2"/><text x="2" y="15" font-size="8" font-weight="bold" fill="#B464FF">Mag</text><text x="2" y="22" font-size="8" fill="#B464FF">nific</text></svg></div>
+        <div class="tool-name">Magnific</div><div class="tool-cat">IA · Imagem</div>
       </div>
-      <div class="tool-name">ChatGPT</div>
-      <div class="tool-cat">OpenAI · IA</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(100,200,100,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#64C864" opacity=".15"/><text x="2" y="16" font-size="10" font-weight="bold" fill="#64C864">Man</text><text x="2" y="22" font-size="8" fill="#64C864">us</text></svg>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(50,100,200,.12)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="16" fill="#302E31"/><circle cx="16" cy="16" r="8" fill="none" stroke="#5B8DD9" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#5B8DD9"/></svg></div>
+        <div class="tool-name">OBS Studio</div><div class="tool-cat">Transmissão</div>
       </div>
-      <div class="tool-name">Manus</div>
-      <div class="tool-cat">Agente · IA</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(0,174,239,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00AEEF" opacity=".15"/><text x="1" y="16" font-size="10" font-weight="bold" fill="#00AEEF">Cla</text><text x="1" y="22" font-size="8" fill="#00AEEF">ude</text></svg>
-      </div>
-      <div class="tool-name">Claude</div>
-      <div class="tool-cat">Anthropic · IA</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(0,198,255,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00C6FF" opacity=".15"/><text x="2" y="16" font-size="11" font-weight="bold" fill="#00C6FF">Can</text><text x="2" y="22" font-size="8" fill="#00C6FF">va</text></svg>
-      </div>
-      <div class="tool-name">Canva</div>
-      <div class="tool-cat">Design</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,100,50,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6432" opacity=".15"/><text x="2" y="14" font-size="8" font-weight="bold" fill="#FF6432">Great</text><text x="2" y="21" font-size="8" fill="#FF6432">Pages</text></svg>
-      </div>
-      <div class="tool-name">GreatPages</div>
-      <div class="tool-cat">Landing Pages</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(0,105,255,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0069FF" opacity=".15"/><text x="1" y="16" font-size="10" font-weight="bold" fill="#0069FF">Mon</text><text x="1" y="22" font-size="8" fill="#0069FF">day</text></svg>
-      </div>
-      <div class="tool-name">Monday</div>
-      <div class="tool-cat">Gestão</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,88,0,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF5800" opacity=".15"/><text x="3" y="15" font-size="8" font-weight="bold" fill="#FF5800">RD</text><text x="1" y="22" font-size="7" fill="#FF5800">Station</text></svg>
-      </div>
-      <div class="tool-name">RD Station</div>
-      <div class="tool-cat">Marketing</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(180,100,255,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#B464FF" opacity=".15"/><text x="2" y="15" font-size="8" font-weight="bold" fill="#B464FF">Mag</text><text x="2" y="22" font-size="8" fill="#B464FF">nific</text></svg>
-      </div>
-      <div class="tool-name">Magnific</div>
-      <div class="tool-cat">IA · Imagem</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(23,147,209,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1793D1" opacity=".2"/><text x="2" y="15" font-size="9" font-weight="bold" fill="#1793D1">Arch</text><text x="2" y="22" font-size="8" fill="#1793D1">Linux</text></svg>
-      </div>
-      <div class="tool-name">Linux Hyprland</div>
-      <div class="tool-cat">Arch · Sistema</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(209,52,56,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#D13438" opacity=".2"/><text x="3" y="16" font-size="13" font-weight="bold" fill="#D13438">P</text><text x="12" y="16" font-size="9" fill="#D13438">pt</text></svg>
-      </div>
-      <div class="tool-name">PowerPoint</div>
-      <div class="tool-cat">Microsoft</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(43,87,154,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#2B579A" opacity=".2"/><text x="3" y="16" font-size="13" font-weight="bold" fill="#2B579A">W</text></svg>
-      </div>
-      <div class="tool-name">Word</div>
-      <div class="tool-cat">Microsoft</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(33,115,70,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#217346" opacity=".2"/><text x="3" y="16" font-size="13" font-weight="bold" fill="#217346">X</text></svg>
-      </div>
-      <div class="tool-name">Excel</div>
-      <div class="tool-cat">Microsoft</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,255,255,.08)">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="white" opacity=".08"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="white"/></svg>
-      </div>
-      <div class="tool-name">GitHub</div>
-      <div class="tool-cat">Deploy · Versionamento</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(38,132,255,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#2684FF" opacity=".15"/><path d="M11.53 2.11L6.64 7a.74.74 0 000 1.05l2.93 2.93 2.93 2.93a.74.74 0 001.05 0l4.89-4.89a.74.74 0 000-1.05L13.55 3.09l-.97-.98a.74.74 0 00-1.05 0z" fill="#2684FF"/><path d="M11.47 12.07l-2.93 2.93-2.93 2.93a.74.74 0 000 1.05l4.89 4.89a.74.74 0 001.05 0l4.89-4.89a.74.74 0 000-1.05l-4.97-4.86z" fill="#2684FF" opacity=".6"/></svg>
-      </div>
-      <div class="tool-name">Jira</div>
-      <div class="tool-cat">CRM · Gestão</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(0,134,255,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00A4A6" opacity=".15"/><text x="1" y="15" font-size="8" font-weight="bold" fill="#00A4A6">GoD</text><text x="3" y="22" font-size="8" fill="#00A4A6">addy</text></svg>
-      </div>
-      <div class="tool-name">GoDaddy</div>
-      <div class="tool-cat">Hospedagem · Domínios</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(0,173,238,.12)">
-        <svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00C7B7" opacity=".18"/><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" fill="none" stroke="#00C7B7" stroke-width="1.5"/><text x="6" y="16" font-size="8" font-weight="bold" fill="#00C7B7">Net</text></svg>
-      </div>
-      <div class="tool-name">Netlify</div>
-      <div class="tool-cat">Deploy · Hospedagem</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(67,206,162,.15)">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#43E660" opacity=".15"/><path d="M12 2l-7 7h4v6h-4l7 7 7-7h-4V9h4l-7-7z" fill="#43E660"/></svg>
-      </div>
-      <div class="tool-name">Linktree</div>
-      <div class="tool-cat">Bio Link</div>
-    </div>
-    <!-- Cursor -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,255,255,.06)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><path d="M8 8l5 16 3-6 6-3-14-7z" fill="white"/></svg>
-      </div>
-      <div class="tool-name">Cursor</div>
-      <div class="tool-cat">Editor IA · Código</div>
-    </div>
-    <!-- Vercel -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,255,255,.06)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#111"/><path d="M16 6l12 20H4L16 6z" fill="white"/></svg>
-      </div>
-      <div class="tool-name">Vercel</div>
-      <div class="tool-cat">Deploy · Hospedagem</div>
-    </div>
-    <!-- Slack -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(74,21,75,.15)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#4A154B" opacity=".2"/><path d="M13 8a2 2 0 11-4 0v-2a2 2 0 114 0v2z" fill="#E01E5A"/><path d="M19 8a2 2 0 11-4 0v-6a2 2 0 114 0v6z" fill="#36C5F0"/><path d="M24 13a2 2 0 110 4h-2a2 2 0 110-4h2z" fill="#2EB67D"/><path d="M24 19a2 2 0 110 4h-6a2 2 0 110-4h6z" fill="#ECB22E"/><path d="M8 13a2 2 0 110 4v2a2 2 0 11-4 0v-6a2 2 0 110 0h2z" fill="#E01E5A" opacity=".7"/><path d="M13 24a2 2 0 11-4 0v-2a2 2 0 114 0v2z" fill="#2EB67D" opacity=".7"/></svg>
-      </div>
-      <div class="tool-name">Slack</div>
-      <div class="tool-cat">Comunicação</div>
-    </div>
-    <!-- Next.js -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,255,255,.06)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#111"/><circle cx="16" cy="16" r="10" fill="none" stroke="white" stroke-width="1.5"/><path d="M13 12l8 9" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M13 12v8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div class="tool-name">Next.js</div>
-      <div class="tool-cat">Framework · React</div>
-    </div>
-    <!-- Clerk -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(110,68,255,.15)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#6C47FF" opacity=".2"/><path d="M21 11a7 7 0 11-10 9.9" stroke="#6C47FF" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="3" fill="#6C47FF"/></svg>
-      </div>
-      <div class="tool-name">Clerk</div>
-      <div class="tool-cat">Auth · Usuários</div>
-    </div>
-    <!-- Supabase -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(62,207,142,.12)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#3ECF8E" opacity=".15"/><path d="M18 6l-10 14h10V26l10-14H18V6z" fill="#3ECF8E"/></svg>
-      </div>
-      <div class="tool-name">Supabase</div>
-      <div class="tool-cat">Banco de Dados · API</div>
-    </div>
-    <!-- shadcn/ui -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,255,255,.06)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#18181B"/><rect x="7" y="14" width="7" height="11" rx="2" fill="white"/><rect x="18" y="7" width="7" height="11" rx="2" fill="white" opacity=".5"/></svg>
-      </div>
-      <div class="tool-name">shadcn/ui</div>
-      <div class="tool-cat">UI Components</div>
-    </div>
-    <!-- Miro -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,214,0,.12)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#FFD600" opacity=".2"/><text x="5" y="22" font-size="16" font-weight="900" fill="#FFD600" font-family="sans-serif">M</text></svg>
-      </div>
-      <div class="tool-name">Miro</div>
-      <div class="tool-cat">Colaboração · Planej.</div>
-    </div>
-    <!-- mLabs -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(255,80,120,.12)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#FF5078" opacity=".2"/><text x="4" y="22" font-size="13" font-weight="900" fill="#FF5078" font-family="sans-serif">mL</text></svg>
-      </div>
-      <div class="tool-name">mLabs</div>
-      <div class="tool-cat">Social Media</div>
-    </div>
-    <!-- Discord -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(88,101,242,.15)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#5865F2" opacity=".2"/><path d="M22 10s-2-1.5-5-1.5L16.5 10s-3 .5-5 2c0 0-2.5 4.5-2.5 8 0 0 1.5 2 4 2.5l1-1.5s-1.5-.5-2-1.5c0 0 3 1 8 1s8-1 8-1c-.5 1-2 1.5-2 1.5l1 1.5c2.5-.5 4-2.5 4-2.5 0-3.5-2.5-8-2.5-8s-2-1.5-5-2zM13 17c-.8 0-1.5-.7-1.5-1.5S12.2 14 13 14s1.5.7 1.5 1.5S13.8 17 13 17zm6 0c-.8 0-1.5-.7-1.5-1.5S18.2 14 19 14s1.5.7 1.5 1.5S19.8 17 19 17z" fill="#5865F2"/></svg>
-      </div>
-      <div class="tool-name">Discord</div>
-      <div class="tool-cat">Comunidade</div>
-    </div>
-    <!-- OBS Studio -->
-    <div class="tool-card">
-      <div class="tool-logo" style="background:rgba(50,100,200,.12)">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="16" fill="#302E31"/><circle cx="16" cy="16" r="8" fill="none" stroke="#5B8DD9" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#5B8DD9"/></svg>
-      </div>
-      <div class="tool-name">OBS Studio</div>
-      <div class="tool-cat">Transmissão · Vídeo</div>
     </div>
   </div>
+
+  <!-- 🤖 INTELIGÊNCIA ARTIFICIAL -->
+  <div class="tools-category">
+    <div class="tools-category-label">🤖 Inteligência Artificial</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(16,163,127,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="12" fill="#10A37F" opacity=".25"/><text x="3" y="17" font-size="11" font-weight="bold" fill="#10A37F">GPT</text></svg></div>
+        <div class="tool-name">ChatGPT</div><div class="tool-cat">OpenAI</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(0,174,239,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00AEEF" opacity=".2"/><text x="1" y="16" font-size="10" font-weight="bold" fill="#00AEEF">Cla</text><text x="1" y="22" font-size="8" fill="#00AEEF">ude</text></svg></div>
+        <div class="tool-name">Claude</div><div class="tool-cat">Anthropic</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(66,133,244,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#4285F4" opacity=".2"/><text x="2" y="17" font-size="9" font-weight="bold" fill="#4285F4">Gem</text></svg></div>
+        <div class="tool-name">Gemini</div><div class="tool-cat">Google</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(100,200,100,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#64C864" opacity=".2"/><text x="2" y="16" font-size="10" font-weight="bold" fill="#64C864">Man</text><text x="2" y="22" font-size="8" fill="#64C864">us</text></svg></div>
+        <div class="tool-name">Manus</div><div class="tool-cat">Agente IA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📣 MARKETING & REDES SOCIAIS -->
+  <div class="tools-category">
+    <div class="tools-category-label">📣 Marketing & Redes Sociais</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,88,0,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF5800" opacity=".2"/><text x="3" y="15" font-size="8" font-weight="bold" fill="#FF5800">RD</text><text x="1" y="22" font-size="7" fill="#FF5800">Station</text></svg></div>
+        <div class="tool-name">RD Station</div><div class="tool-cat">Marketing</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,80,120,.12)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#FF5078" opacity=".2"/><text x="4" y="22" font-size="13" font-weight="900" fill="#FF5078" font-family="sans-serif">mL</text></svg></div>
+        <div class="tool-name">mLabs</div><div class="tool-cat">Social Media</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(67,206,162,.15)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#43E660" opacity=".2"/><path d="M12 2l-7 7h4v6h-4l7 7 7-7h-4V9h4l-7-7z" fill="#43E660"/></svg></div>
+        <div class="tool-name">Linktree</div><div class="tool-cat">Bio Link</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,100,50,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6432" opacity=".2"/><text x="2" y="14" font-size="8" font-weight="bold" fill="#FF6432">Great</text><text x="2" y="21" font-size="8" fill="#FF6432">Pages</text></svg></div>
+        <div class="tool-name">GreatPages</div><div class="tool-cat">Landing Pages</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 💻 DESENVOLVIMENTO WEB -->
+  <div class="tools-category">
+    <div class="tools-category-label">💻 Desenvolvimento Web</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,255,255,.06)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#1a1a1a"/><path d="M8 8l5 16 3-6 6-3-14-7z" fill="white"/></svg></div>
+        <div class="tool-name">Cursor</div><div class="tool-cat">Editor IA</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,255,255,.06)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#111"/><path d="M16 6l12 20H4L16 6z" fill="white"/></svg></div>
+        <div class="tool-name">Vercel</div><div class="tool-cat">Deploy</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,255,255,.06)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#111"/><circle cx="16" cy="16" r="10" fill="none" stroke="white" stroke-width="1.5"/><path d="M13 12l8 9" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M13 12v8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="tool-name">Next.js</div><div class="tool-cat">Framework React</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,255,255,.06)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#18181B"/><rect x="7" y="14" width="7" height="11" rx="2" fill="white"/><rect x="18" y="7" width="7" height="11" rx="2" fill="white" opacity=".5"/></svg></div>
+        <div class="tool-name">shadcn/ui</div><div class="tool-cat">UI Components</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(110,68,255,.15)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#6C47FF" opacity=".2"/><path d="M21 11a7 7 0 11-10 9.9" stroke="#6C47FF" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="3" fill="#6C47FF"/></svg></div>
+        <div class="tool-name">Clerk</div><div class="tool-cat">Auth · Usuários</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(62,207,142,.12)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#3ECF8E" opacity=".15"/><path d="M18 6l-10 14h10V26l10-14H18V6z" fill="#3ECF8E"/></svg></div>
+        <div class="tool-name">Supabase</div><div class="tool-cat">Banco de Dados</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌐 HOSPEDAGEM & DEPLOY -->
+  <div class="tools-category">
+    <div class="tools-category-label">🌐 Hospedagem & Deploy</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,255,255,.08)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="white" opacity=".08"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="white"/></svg></div>
+        <div class="tool-name">GitHub</div><div class="tool-cat">Versionamento</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(0,173,238,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00C7B7" opacity=".2"/><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" fill="none" stroke="#00C7B7" stroke-width="1.5"/><text x="6" y="16" font-size="8" font-weight="bold" fill="#00C7B7">Net</text></svg></div>
+        <div class="tool-name">Netlify</div><div class="tool-cat">Deploy</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(0,134,160,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00A4A6" opacity=".2"/><text x="1" y="15" font-size="8" font-weight="bold" fill="#00A4A6">GoD</text><text x="3" y="22" font-size="8" fill="#00A4A6">addy</text></svg></div>
+        <div class="tool-name">GoDaddy</div><div class="tool-cat">Domínios</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📋 GESTÃO & PRODUTIVIDADE -->
+  <div class="tools-category">
+    <div class="tools-category-label">📋 Gestão & Produtividade</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(0,105,255,.12)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0069FF" opacity=".2"/><text x="1" y="16" font-size="10" font-weight="bold" fill="#0069FF">Mon</text><text x="1" y="22" font-size="8" fill="#0069FF">day</text></svg></div>
+        <div class="tool-name">Monday</div><div class="tool-cat">Gestão</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(38,132,255,.15)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#2684FF" opacity=".2"/><path d="M11.53 2.11L6.64 7a.74.74 0 000 1.05l2.93 2.93 2.93 2.93a.74.74 0 001.05 0l4.89-4.89a.74.74 0 000-1.05L13.55 3.09l-.97-.98a.74.74 0 00-1.05 0z" fill="#2684FF"/><path d="M11.47 12.07l-2.93 2.93-2.93 2.93a.74.74 0 000 1.05l4.89 4.89a.74.74 0 001.05 0l4.89-4.89a.74.74 0 000-1.05l-4.97-4.86z" fill="#2684FF" opacity=".6"/></svg></div>
+        <div class="tool-name">Jira</div><div class="tool-cat">CRM</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(255,214,0,.12)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#FFD600" opacity=".2"/><text x="5" y="22" font-size="16" font-weight="900" fill="#FFD600" font-family="sans-serif">M</text></svg></div>
+        <div class="tool-name">Miro</div><div class="tool-cat">Colaboração</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(74,21,75,.15)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#4A154B" opacity=".2"/><path d="M13 8a2 2 0 11-4 0v-2a2 2 0 114 0v2z" fill="#E01E5A"/><path d="M19 8a2 2 0 11-4 0v-6a2 2 0 114 0v6z" fill="#36C5F0"/><path d="M24 13a2 2 0 110 4h-2a2 2 0 110-4h2z" fill="#2EB67D"/><path d="M24 19a2 2 0 110 4h-6a2 2 0 110-4h6z" fill="#ECB22E"/></svg></div>
+        <div class="tool-name">Slack</div><div class="tool-cat">Comunicação</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(88,101,242,.15)"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#5865F2" opacity=".2"/><path d="M22 10s-2-1.5-5-1.5L16.5 10s-3 .5-5 2c0 0-2.5 4.5-2.5 8 0 0 1.5 2 4 2.5l1-1.5s-1.5-.5-2-1.5c0 0 3 1 8 1s8-1 8-1c-.5 1-2 1.5-2 1.5l1 1.5c2.5-.5 4-2.5 4-2.5 0-3.5-2.5-8-2.5-8s-2-1.5-5-2zM13 17c-.8 0-1.5-.7-1.5-1.5S12.2 14 13 14s1.5.7 1.5 1.5S13.8 17 13 17zm6 0c-.8 0-1.5-.7-1.5-1.5S18.2 14 19 14s1.5.7 1.5 1.5S19.8 17 19 17z" fill="#5865F2"/></svg></div>
+        <div class="tool-name">Discord</div><div class="tool-cat">Comunidade</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🖥️ OFFICE & SISTEMA -->
+  <div class="tools-category">
+    <div class="tools-category-label">🖥️ Office & Sistema</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(209,52,56,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#D13438" opacity=".2"/><text x="3" y="17" font-size="14" font-weight="bold" fill="#D13438">P</text></svg></div>
+        <div class="tool-name">PowerPoint</div><div class="tool-cat">Microsoft</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(43,87,154,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#2B579A" opacity=".2"/><text x="3" y="17" font-size="14" font-weight="bold" fill="#2B579A">W</text></svg></div>
+        <div class="tool-name">Word</div><div class="tool-cat">Microsoft</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(33,115,70,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#217346" opacity=".2"/><text x="3" y="17" font-size="14" font-weight="bold" fill="#217346">X</text></svg></div>
+        <div class="tool-name">Excel</div><div class="tool-cat">Microsoft</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo" style="background:rgba(23,147,209,.15)"><svg width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1793D1" opacity=".2"/><text x="2" y="15" font-size="9" font-weight="bold" fill="#1793D1">Arch</text><text x="2" y="22" font-size="8" fill="#1793D1">Linux</text></svg></div>
+        <div class="tool-name">Linux Hyprland</div><div class="tool-cat">Arch · Sistema</div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <div class="divider"></div>
@@ -840,19 +793,11 @@ body.cb-achromatopsia{filter:url('#cb-achromatopsia')}
         </div>
       </div>
       <div class="lang-card">
-        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iNzIwIiBoZWlnaHQ9IjUwNCIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjM2MCIgY3k9IjI1MiIgcj0iMTUwIiBmaWxsPSIjQkMwMDJEIi8+PC9zdmc+" alt="Japão"></div>
+        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iMjQwIiBoZWlnaHQ9IjUwNCIgZmlsbD0iIzAwOTI0NiIvPjxyZWN0IHg9IjI0MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSI1MDQiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI0ODAiIHdpZHRoPSIyNDAiIGhlaWdodD0iNTA0IiBmaWxsPSIjQ0UyQjM3Ii8+PC9zdmc+" alt="Itália"></div>
         <div>
-          <div class="lang-name">Japonês</div>
-          <div class="lang-level">Intermediário</div>
-          <div class="lang-detail">Wizard — Atualmente</div>
-        </div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-flag"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjAgNTA0Ij48cmVjdCB3aWR0aD0iNzIwIiBoZWlnaHQ9IjE2OCIgZmlsbD0iIzAwMCIvPjxyZWN0IHk9IjE2OCIgd2lkdGg9IjcyMCIgaGVpZ2h0PSIxNjgiIGZpbGw9IiNERDAwMDAiLz48cmVjdCB5PSIzMzYiIHdpZHRoPSI3MjAiIGhlaWdodD0iMTY4IiBmaWxsPSIjRkZDRTAwIi8+PC9zdmc+" alt="Alemanha"></div>
-        <div>
-          <div class="lang-name">Alemão</div>
-          <div class="lang-level">Intermediário</div>
-          <div class="lang-detail">Kreativ — 2023 a 2024</div>
+          <div class="lang-name">Italiano</div>
+          <div class="lang-level">Básico</div>
+          <div class="lang-detail">Wizard — desde 2026</div>
         </div>
       </div>
     </div>
